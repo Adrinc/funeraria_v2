@@ -16,6 +16,7 @@ export const RiveElement = (props) => {
       alignment: Alignment.Center,
     }),
     autoplay: autoplay,
+
     assetLoader: (asset, bytes) => {
       if (asset.isImage) {
         const imageAsset = asset;
@@ -46,7 +47,7 @@ export const RiveElement = (props) => {
     if (rive) {
      
       rive.on(EventType.RiveEvent, onRiveEventReceived);
-
+/*       rive.resizeDrawingSurfaceToCanvas(); */
      if(hastext){
    
       for (const [key, value] of Object.entries(textValues)) {

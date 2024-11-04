@@ -37,9 +37,9 @@ export default function Experienc(props) {
         <EffectComposer multisampling={1}>
           <ToneMapping {...toneMappingConfig} />
           <Vignette {...vignetteConfig} />
-          <ChromaticAberration {...chromaticAberrationConfig} />
-          <Bloom {...bloomConfig} />
-          <Noise {...noiseConfig} />
+{/*           <ChromaticAberration {...chromaticAberrationConfig} /> */}
+     {/*      <Bloom {...bloomConfig} /> */}
+     {/*      <Noise {...noiseConfig} /> */}
         </EffectComposer>
       </Suspense>
 {/*   <Environment {...enviromentConfig} /> */}
