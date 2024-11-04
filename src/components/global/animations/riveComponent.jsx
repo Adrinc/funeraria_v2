@@ -1,4 +1,4 @@
-import { useRive, Layout, Fit, Alignment,  EventType, RiveEventType  } from "@rive-app/react-canvas";
+import { useRive, Layout, Fit, Alignment,  EventType, RiveEventType, decodeImage  } from "@rive-app/react-canvas";
 import { useEffect } from 'react';
 
 //NOTA: fit puede ser: "cover", "contain", "fill", "fitWidth", "fitHeight"
@@ -15,9 +15,31 @@ export const RiveElement = (props) => {
       alignment: Alignment.Center,
     }),
     autoplay: autoplay,
+    assetLoader: (asset, bytes) => {
+      if (asset.isImage) {
+        const imageAsset = asset;
+        if (asset.name === 'flutter') {
+            setImage(imageAsset, '/image/flutterr.webp');
+            return true;
+        }
+        if (asset.name === 'apps' ) {
+            setImage(imageAsset, '/image/kauralevento.jpg');
+            return true;
+        }
+        // etc
+      }
+      return false;
+    },
   });
 
-
+  const setImage = (asset, imageUrl) => {
+    fetch(imageUrl).then(async (res) => {
+      const image = await decodeImage(new Uint8Array(await res.arrayBuffer()));
+      asset.setRenderImage(image);
+      image.unref();
+    }).catch(error => console.error('Error al cargar la imagen:', error));
+  };
+  
 
   useEffect(() => {
     if (rive) {

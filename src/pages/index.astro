@@ -1,32 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HeroSeccion1 from '../components/index/Secciones/HeroSeccion1.astro';
-import HeroSeccion2 from '../components/index/Secciones/HeroSeccion2.astro';
 
-
-import HeroSeccion3 from '../components/index/Secciones/HeroSeccion3.astro';
-import HomeSeccion4 from '../components/index/Secciones/HomeSeccion4.astro';
-import BoletosSeccion from '../components/index/Secciones/BoletosSeccion.astro';
-import CarruselBanda from '../components/global/CarruselBandaRive.astro';
-import CarruselCalaverasRive from '../components/global/CarruselCalaverasRive.astro';
+import MyCanvas from '../components/Scene3D/oficina/Main.jsx';
 
 ---
 
 <Layout title="Home" showFooter={true}>
-	
-	<HeroSeccion1/>
-	<HeroSeccion2 />
-	<HeroSeccion3 />
-	<CarruselCalaverasRive />
-	<HomeSeccion4 />
-	<CarruselCalaverasRive />
-	<CarruselBanda />
-	<CarruselCalaverasRive />
 
-	<BoletosSeccion />
+
+
+
+
+		<MyCanvas client:only transition:persist/>
+<!-- 		<div class="h-[100vh] w-[100vw] flex column justify-center align-middle bg-red items-center">
+
+			<button class="w-5 h-5">
+				<a href="/support">About</a>
+			</button>
+		</div> -->
 
 
 </Layout>
-
-
 

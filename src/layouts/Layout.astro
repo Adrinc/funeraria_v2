@@ -35,7 +35,7 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 	<header>
 
 		<!-- <RouterLinks  transition:persist client:only /> -->
-	<!-- 	<TopMenuSuffle /> -->
+		<!-- <TopMenuSuffle /> -->
 	
 		
 	</header>
@@ -44,10 +44,10 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 
 
 	<main>	
-		<RedesSocialesNav />
+		<!-- <RedesSocialesNav /> -->
 		<slot />
 	</main>
-	<video 
+<!-- 	<video 
 	src="/videos/Kaural1.mp4"
 	autoplay 
 	muted 
@@ -56,9 +56,10 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 	class="video-background"
 	id="background-video"
 	/>
-	
+	 -->
 	</body>
-	{showFooter && <FootUWIFI/>}
+	
+<!-- 	{showFooter && <FootUWIFI/>} -->
 </html>
 
 <!-- <script>
@@ -177,22 +178,25 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 
 	html {
 	position: relative;
-	overflow-x: hidden;
+	overflow: hidden;
+/* 	overflow-x: hidden; */
 	-webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select:none;
     user-select:none;
 	box-sizing: border-box;
 	scroll-behavior: smooth;
-	background-color: #00000000
+	background-color: #00000000;
+	
 
 	}
 	body{
 		font-family: var(--font-family-primary);
+		background: black;
 	/* 	overflow: hidden; */
 	}
 	
-	.video-background {
+/* 	.video-background {
 		position: fixed;
 		top: 0;
 		left: 0;
@@ -200,7 +204,7 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 		height: 100vh;
 		object-fit: cover;
 		z-index: -100;
-	}
+	} */
 	main {
 		position: relative;
 
@@ -221,9 +225,22 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 	  font-family: var(--font-family-primary);
 	}
 	footer {
+	/* 	position: fixed; */
+		display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 20vh;
+
 		font-family: var(--font-family-primary);
-		padding-left: clamp(0px, 10vw, 100px);
-		padding-right: clamp(0px, 10vw, 100px);
+        padding-left: clamp(0px, 5vw, 100px);
+		padding-right: clamp(0px, 5vw, 100px);
+        gap:20px;
+        background-color: var(--primary-color);
+        z-index: 1000;
+
+
 	}
 
   

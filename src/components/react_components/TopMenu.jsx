@@ -92,7 +92,7 @@ const TopMenu = () => {
     return (
         <>
                     {showMenu && (
-                <div className="md:hidden flex flex-col gap-1 absolute justify-evenly top-0 left-0 w-[50vw] h-[100vh] shadow-lg z-50 bg-[#00000070] backdrop-filter backdrop-blur-lg border-x-2 border-tertiaryColor animate-fade-right animate-duration-500">
+                <div className="md:hidden flex flex-col gap-1 absolute justify-evenly top-0 left-0 w-[50vw] h-[100vh] shadow-lg z-50 bg-[#0000004b] backdrop-filter backdrop-blur-lg border-x-2 border-tertiaryColor animate-fade-right animate-duration-500">
                     <div className='flex flex-row justify-end p-4 '>
               
                         <button aria-label="burger buttun close" onClick={toggleMenu} className=" border-2 rounded-lg text-primaryTextColor p-2  font-bold text-lg">
