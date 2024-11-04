@@ -10,6 +10,7 @@ export const RiveElement = (props) => {
     stateMachines: stateMachines?? null,
     artboard: artboard ?? null,
     automaticallyHandleEvents: true,
+    isTouchScrollEnabled: true,
     layout: new Layout({ 
       fit: fit ?? "contain",
       alignment: Alignment.Center,
