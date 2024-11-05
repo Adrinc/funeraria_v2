@@ -5,6 +5,7 @@ import Placeholder from './Placeholder';
 import { ToneMapping, ChromaticAberration, Bloom, DepthOfField, EffectComposer, Noise, Vignette } from '@react-three/postprocessing';
 
 import { vignetteConfig, chromaticAberrationConfig, bloomConfig, noiseConfig, toneMappingConfig, enviromentConfig } from '../js/scene_config';
+
 import Cbl from './testnweb';
 
 import VideoTextureCBLUNA from './video';
@@ -31,14 +32,14 @@ export default function Experienc(props) {
   return (
 <>
 <AdaptiveDpr pixelated /> 
-  <Perf position="top-left" />
+{/*   <Perf position="top-left" /> */}
   <color attach="background" args={['#17171e']} />
       <Suspense fallback={null}>
         <EffectComposer multisampling={1}>
           <ToneMapping {...toneMappingConfig} />
           <Vignette {...vignetteConfig} />
-{/*           <ChromaticAberration {...chromaticAberrationConfig} /> */}
-     {/*      <Bloom {...bloomConfig} /> */}
+          <ChromaticAberration {...chromaticAberrationConfig} />
+          <Bloom {...bloomConfig} />
      {/*      <Noise {...noiseConfig} /> */}
         </EffectComposer>
       </Suspense>
@@ -52,43 +53,58 @@ export default function Experienc(props) {
     distance={0.5}
     maxSpeed={10}
     prepend={false}
-
     >
-      <Scroll
-
-      >
+      <Scroll>
 
         
-  {/*       <TextComponents /> */}
+
 
         <Sparkles color={"#003aff"} count={150} speed={0.1} position={[0,-25,0]} scale={10} size={10} />
         <Sparkles color={"#00FFF8"} count={50} speed={0.1} position={[0,-30,0]} scale={30} size={50} />
         <Sparkles color={"#003aff"} count={150} speed={0.1} position={[0,-40,-10]} scale={40} size={30} />
-  <Clouds position={[0,-20,0]} material={THREE.MeshBasicMaterial}>
-  <Cloud segments={40} bounds={[0, 10, 2]} volume={10} color="blue" fade={100}/>
-  <Cloud seed={1} scale={2} volume={5} color="#bd00ff" fade={100} />
-  <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-
+<Clouds position={[0,-25,0]} material={THREE.MeshBasicMaterial}>
+  <Cloud segments={40} bounds={[0, 10, 2]} volume={20} color="blue" fade={10}/>
+  <Cloud seed={1} bounds={[0, 15, 2]} scale={2} volume={8} color="#bd00ff" fade={10} />
 </Clouds>
+
+
+
+  <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
    
-       {/*    <Cbl position={[0, -45, 0]} /> */}
+        {/*   <Cbl position={[0, -45, 0]} /> */}
    
        {/*  <VideoTextureCBLUNA scale={1}/> */}
 
-{/*       <Html occlude={false} wrapperClass="htmlScreen" position={[0,0,-10]}  prepend distanceFactor={ 1.17 }  transform scale={10}  rotation={ [ 0, 0, 0 ] }>
- 
-              </Html> */}
+{/*       <Html occlude={false} wrapperClass="htmlScreen" position={[0,0,0]}  prepend distanceFactor={ 1.17 }  transform scale={1}  rotation={ [ 0, 0, 0 ] }>
+        <div className='w-[100vw] h-[100vh]'>
+
+          <iframe src="https://cbl.virtalus.cbluna-dev.com/" frameborder="0" className='w-full h-full object-fill'></iframe>
+        </div>
+      </Html>
+ */}
+
       </Scroll>
 
-  <Scroll  html={true} style={{  display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", width: "100vw",  height: "auto" }}>
+  <Scroll  html={true} style={{  
+    display: "flex", 
+    flexDirection: "column", 
+    justifyContent: "center", 
+    alignItems: "center", 
+    width: "100vw",   
+    height: "auto",
+    /* backgroundImage: `
+      linear-gradient(rgba(255, 255, 255, 0.1) 2px, transparent 1px), 
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 2px, transparent 1px)
+    `,
+    backgroundSize: "100px 100px" */}}>
 
 
 <TopStart />
 	  <IndexSeccion1 />
 	  <IndexSeccion2 />
 	  <IndexSeccion3 />
-	  <DividerNeon2 />
 	  <IndexSeccion4 />
+	  <DividerNeon2 />
 	  <IndexSeccion5 />
   </Scroll>
 

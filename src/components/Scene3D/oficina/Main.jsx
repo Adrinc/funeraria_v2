@@ -7,9 +7,9 @@ import mainStyle from './mainStyle.module.css';
 
 const MyCanvas = () => {
   return <>
-  <div className={mainStyle.overlay}>
+  <div className={mainStyle.overlay}/>
     
-  </div>
+
     <Canvas
       dpr={[0.5, 1]}
       style={{

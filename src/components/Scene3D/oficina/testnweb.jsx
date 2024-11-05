@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { TextComponents } from './text/maintext';
 //import Text from drei
 
-
+import HolographicMaterial from '../js/HolographicMaterial.jsx';
 
 export default function Cbl(props)
 {
@@ -58,7 +58,7 @@ const group = useRef()
     return (
       <group ref={group} {...props} dispose={null}>
         <group name="Scene">
-       {/*    <group
+          <group
             name="seccion1"
             position={[0, 25, 0]}
             rotation={[Math.PI / 2, 0, 0]}
@@ -69,36 +69,94 @@ const group = useRef()
               receiveShadow
               geometry={nodes.Plano002.geometry}
               material={materials.seccion5}
-            />
+                       >
+                        <HolographicMaterial
+    fresnelAmount={0.2}
+    fresnelOpacity={0.15}
+    hologramBrightness={0.3}
+    scanlineSize={6}
+    signalSpeed={1.3}
+    hologramColor={"#00ffbd"}
+    hologramOpacity={1}
+    blinkFresnelOnly={true}
+    enableBlinking={false}
+    enableAdditive={true}
+    side={"FrontSide"}
+/>
+            </mesh >
+            
             <mesh
               name="Plano002_1"
               castShadow
               receiveShadow
               geometry={nodes.Plano002_1.geometry}
               material={materials.seccion2}
-            />
+                       >
+                        <HolographicMaterial
+    fresnelAmount={0.2}
+    fresnelOpacity={0.15}
+    hologramBrightness={0.7}
+    scanlineSize={6}
+    signalSpeed={2.3}
+    hologramColor={"#2700ff"}
+    hologramOpacity={0.5}
+    blinkFresnelOnly={true}
+    enableBlinking={false}
+    enableAdditive={true}
+    side={"FrontSide"}
+/>
+            </mesh >
             <mesh
               name="Plano002_2"
               castShadow
               receiveShadow
               geometry={nodes.Plano002_2.geometry}
               material={materials.seccion3}
-            />
+                       >
+                        <HolographicMaterial
+    fresnelAmount={0.2}
+    fresnelOpacity={0.15}
+    hologramBrightness={0.7}
+    scanlineSize={6}
+    signalSpeed={2.3}
+    hologramColor={"#ec00ff"}
+    hologramOpacity={0.5}
+    blinkFresnelOnly={true}
+    enableBlinking={false}
+    enableAdditive={true}
+    side={"FrontSide"}
+/>
+            </mesh >
             <mesh
               name="Plano002_3"
               castShadow
               receiveShadow
               geometry={nodes.Plano002_3.geometry}
               material={materials.seccion4}
-            />
+                       >
+                        <HolographicMaterial
+    fresnelAmount={0.2}
+    fresnelOpacity={0.15}
+    hologramBrightness={0.7}
+    scanlineSize={6}
+    signalSpeed={2.3}
+    hologramColor={"#ff0000"}
+    hologramOpacity={0.5}
+    blinkFresnelOnly={true}
+    enableBlinking={false}
+    enableAdditive={true}
+    side={"FrontSide"}
+/>
+            </mesh >
             <mesh
               name="Plano002_4"
               castShadow
               receiveShadow
               geometry={nodes.Plano002_4.geometry}
               material={materials.secion1}
-            />
-          </group> */}
+              />
+
+          </group>
   {/*         <group
             name="Sketchfab_model"
             position={[0, 22.587, -5.648]}
@@ -163,7 +221,7 @@ const group = useRef()
               </group>
             </group>
           </group> */}
-          <mesh
+         {/*  <mesh
             name="sphere"
             castShadow
             receiveShadow
@@ -218,7 +276,7 @@ const group = useRef()
             position={[10.897, 17.239, -20.549]}
             rotation={[Math.PI / 2, 0, 0]}
             scale={8.057}
-          />
+          /> */}
         </group>
       </group>
     )

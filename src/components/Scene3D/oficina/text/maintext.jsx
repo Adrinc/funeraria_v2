@@ -22,7 +22,7 @@ export function TextComponents(texto) {
 
   return (
     <>
-      <Text position={[0, 2, 1]} fontSize={0.6} color={'#ffffff'} maxWidth={7} textAlign='center'>
+      <Text position={[0, -30, 1]} fontSize={0.6} color={'#ffffff'} maxWidth={7} textAlign='center'>
       Prueba tu velocidad de internet <meshStandardMaterial toneMapped={false} emissive={"#ffffff"} emissiveIntensity={2} />
     </Text>
 {/*       <Text position={[-1.8, -1.4, 1]} fontSize={0.5} ref={downloadRef}>
@@ -31,9 +31,9 @@ export function TextComponents(texto) {
       <Text position={[1.85, -1.4, 1]} fontSize={0.5} ref={uploadRef}>
         {resultupload}
       </Text> */}
-      <Text position={[0, -2.6, 1.3]} fontSize={0.4}>
+  {/*     <Text position={[0, -2.6, 1.3]} fontSize={0.4}>
         {textoboton}
-    </Text>
+    </Text> */}
     </>
   );
 }

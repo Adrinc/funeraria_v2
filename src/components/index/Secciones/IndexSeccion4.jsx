@@ -8,7 +8,7 @@ const IndexSeccion4 = () => {
       <div className={`${styles.rivecomp} ${styles.web}`}>
         <RiveComponent
           src="/rive/cbluna-demo-respaldo.riv"
-          artboard="tus_idead_bg"
+          artboard="tus_idead_bg 2"
           stateMachines="State Machine 1"
           autoplay={true}
           fit="fill"
