@@ -3,7 +3,7 @@ import RiveComponent from "./../global/animations/riveComponent";
 import styles from "./css/dividerNeon2.module.css";
 
 
-const DividerNeon2 = ({ titulo = "Paquete Completo", subtitulo = "Transformación Digital" }) => {
+const DividerNeon2 = ({ titulo = "Ecosistema", subtitulo = "Tecnológico" }) => {
   return (
     <section id="divider" className={styles.sectionss}>
       <div className={`${styles.rivecomp} ${styles.web}`}>
