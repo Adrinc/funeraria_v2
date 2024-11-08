@@ -7,7 +7,7 @@ import mainStyle from './mainStyle.module.css';
 
 const MyCanvas = () => {
   return <>
-  <div className={mainStyle.overlay}/>
+{/*   <div className={mainStyle.overlay}/> */}
     
 
     <Canvas

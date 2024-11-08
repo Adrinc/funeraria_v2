@@ -53,12 +53,13 @@ export default function Experienc(props) {
     distance={0.5}
     maxSpeed={10}
     prepend={false}
+    style={{overflow: 'hidden', position: 'fixed', width: '100%', height: '100vh', zIndex: 1000}}
     >
       <Scroll>
 
         
 
-
+{/* 
         <Sparkles color={"#003aff"} count={150} speed={0.1} position={[0,-25,0]} scale={10} size={10} />
         <Sparkles color={"#00FFF8"} count={50} speed={0.1} position={[0,-30,0]} scale={30} size={50} />
         <Sparkles color={"#003aff"} count={150} speed={0.1} position={[0,-40,-10]} scale={40} size={30} />
@@ -67,9 +68,9 @@ export default function Experienc(props) {
   <Cloud seed={1} bounds={[0, 15, 2]} scale={2} volume={8} color="#bd00ff" fade={10} />
 </Clouds>
 
+ */}
 
-
-  <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+{/*   <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} /> */}
    
         {/*   <Cbl position={[0, -45, 0]} /> */}
    
@@ -99,13 +100,13 @@ export default function Experienc(props) {
     backgroundSize: "100px 100px" */}}>
 
 
-<TopStart />
+{/* <TopStart /> */}
 	  <IndexSeccion1 />
-	  <IndexSeccion2 />
+{/* 	  <IndexSeccion2 />
 	  <IndexSeccion3 />
 	  <IndexSeccion4 />
 	  <DividerNeon2 />
-	  <IndexSeccion5 />
+	  <IndexSeccion5 /> */}
   </Scroll>
 
     </ScrollControls>

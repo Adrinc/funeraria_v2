@@ -7,14 +7,14 @@ const IndexSeccion1 = () => {
     <section id="home" className={styles.sectionss}>
       <div className={`${styles.rivecomp} ${styles.web}`}>
         <RiveComponent
-          src="/rive/cbluna-demo-respaldo.riv"
-          artboard="hero_seccion"
+          src="/rive/cbluna-neo2.riv"
+          artboard="index"
           stateMachines="State Machine 1"
           autoplay={true}
           fit="fill"
         />
       </div>
-      <video
+{/*       <video
         src="/videos/cblunavideo.mp4"
         autoPlay
         muted
@@ -22,7 +22,7 @@ const IndexSeccion1 = () => {
         playsInline
         className={`${styles.videoBackground}`}
       />
-
+ */}
 
 
     </section>
