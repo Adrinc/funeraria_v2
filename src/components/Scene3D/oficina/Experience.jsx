@@ -1,4 +1,4 @@
-import { Text, Sparkles, Environment, ScrollControls, useScroll, OrbitControls, Scroll,AdaptiveDpr, Html, Clouds, Cloud, Stars, MeshWobbleMaterial  } from '@react-three/drei';
+import { Text, Sparkles, Environment, ScrollControls, useScroll, OrbitControls, Scroll,AdaptiveDpr, Html, Clouds, Cloud, Stars, MeshWobbleMaterial, Float  } from '@react-three/drei';
 import { Perf } from 'r3f-perf';
 import React, { Suspense, useState, useRef, useEffect } from 'react';
 import Placeholder from './Placeholder';
@@ -6,7 +6,7 @@ import { ToneMapping, ChromaticAberration, Bloom, DepthOfField, EffectComposer, 
 
 import { vignetteConfig, chromaticAberrationConfig, bloomConfig, noiseConfig, toneMappingConfig, enviromentConfig } from '../js/scene_config';
 
-import Cbl from './testnweb';
+import Llave from './Llave_model.jsx';
 
 import VideoTextureCBLUNA from './video';
 import { TextComponents } from './text/maintext';
@@ -44,8 +44,8 @@ export default function Experienc(props) {
           {/* <Noise {...noiseConfig} /> */}
         </EffectComposer>
       </Suspense>
-{/*   <Environment {...enviromentConfig} /> */}
- {/*  <ambientLight intensity={7} color={'#5d5d5d'} /> */}
+{/*   <Environment {...enviromentConfig} />
+  <ambientLight intensity={7} color={'#5d5d5d'} /> */}
 
   
   <Suspense fallback={<Placeholder position-y={0} scale={[2, 3, 2]} />}>
@@ -58,6 +58,17 @@ export default function Experienc(props) {
     >
       <Scroll>
 
+      <Float
+        speed={0.3} // Animation speed, defaults to 1
+        rotationIntensity={0.2} // XYZ rotation intensity, defaults to 1
+        floatIntensity={1} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
+        floatingRange={[-0.1, 0.1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+      >
+
+    <Llave position={[-2.8, -7, 2]} scale={1.6} rotation={[1.2, 5, 0]} />
+      </Float>
+
+  
         
 
 
