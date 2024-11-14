@@ -8,16 +8,16 @@ const DividerNeon2 = ({ titulo = "Ecosistema", subtitulo = "Tecnológico" }) => 
     <section id="divider" className={styles.sectionss}>
       <div className={`${styles.rivecomp} ${styles.web}`}>
         <RiveComponent
-          src="/rive/cbluna-demo-respaldo.riv"
-          artboard="DividerNeon2"
+          src="/rive/adr-metaverse.riv"
+          artboard="Circle_divider"
           stateMachines="State Machine 1"
           autoplay={true}
           fit="fill"
-          hastext={true}
+         /*  hastext={true}
           textValues={{
             titulo: titulo,
             subtitulo: subtitulo,
-          }}
+          }} */
         />
       </div>
     </section>

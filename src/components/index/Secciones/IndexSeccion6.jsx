@@ -1,14 +1,14 @@
 import React from "react";
 import RiveComponent from "../../global/animations/riveComponent";
-import styles from "../css/indexSeccion5.module.css";
+import styles from "../css/indexSeccion6.module.css";
 
-const IndexSeccion5 = () => {
+const IndexSeccion6 = () => {
   return (
     <section id="home" className={styles.sectionss}>
       <div className={`${styles.rivecomp} ${styles.web}`}>
         <RiveComponent
           src="/rive/adr-metaverse.riv"
-          artboard="seccion5"
+          artboard="seccion6"
           stateMachines="State Machine 1"
           autoplay={true}
           fit="fill"
@@ -19,4 +19,4 @@ const IndexSeccion5 = () => {
   );
 };
 
-export default IndexSeccion5;
+export default IndexSeccion6;
