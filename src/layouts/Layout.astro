@@ -7,7 +7,7 @@ import TopMenuSuffle from '../components/header/TopMenuSuffle.astro';
 
 import FootUWIFI from '../components/global/FootUWIFI.astro';
 import { ViewTransitions } from 'astro:transitions';
-import RedesSocialesNav from '../components/global/RedesSocialesSideMenu.astro';
+
 
 interface Props {
 	showNavBar?: boolean;
@@ -27,15 +27,15 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/image/logos/logo1.png" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<ViewTransitions />
 	</head>
 	<header>
 
-		<!-- <RouterLinks  transition:persist client:only /> -->
-		<!-- <TopMenuSuffle /> -->
+		<RouterLinks  transition:persist client:only />
+	<!-- 	<TopMenuSuffle client:only/> -->
 	
 		
 	</header>
@@ -193,6 +193,7 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 	body{
 		font-family: var(--font-family-primary);
 		background: black;
+		z-index: 0;
 	/* 	overflow: hidden; */
 	}
 	
@@ -207,7 +208,7 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 	} */
 	main {
 		position: relative;
-
+		z-index: 0;
 /* 		background-color: #00000000 */
 	}
 
@@ -218,10 +219,10 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 	  top: 0;
 	  left: 0;
 	  width: 100vw;
-	  height: 100px;
+	  height: 70px;
 
 	
-	  z-index: 100;
+	  z-index: 1000;
 	  font-family: var(--font-family-primary);
 	}
 	footer {

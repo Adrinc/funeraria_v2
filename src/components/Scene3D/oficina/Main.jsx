@@ -15,7 +15,7 @@ const MyCanvas = () => {
       style={{
         height: '100vh', 
         width: '100vw',
-     
+        
         
       }}
       performance={{
