@@ -33,15 +33,15 @@ export default function Experienc(props) {
   return (
 <>
 <AdaptiveDpr pixelated /> 
-  <Perf position="top-left" />
+ {/*  <Perf position="top-left" /> */}
   <color attach="background" args={['#17171e']} />
       <Suspense fallback={null}>
         <EffectComposer multisampling={1}>
           <ToneMapping {...toneMappingConfig} />
           <Vignette {...vignetteConfig} />
-        {/*   <ChromaticAberration {...chromaticAberrationConfig} /> */}
-        {/*   <Bloom {...bloomConfig} /> */}
-       {/*    <Noise {...noiseConfig} /> */}
+          <ChromaticAberration {...chromaticAberrationConfig} />
+          <Bloom {...bloomConfig} />
+          {/* <Noise {...noiseConfig} /> */}
         </EffectComposer>
       </Suspense>
 {/*   <Environment {...enviromentConfig} /> */}
@@ -64,12 +64,12 @@ export default function Experienc(props) {
       {/*   <Sparkles color={"#003aff"} count={150} speed={0.1} position={[0,-25,0]} scale={10} size={10} />
         <Sparkles color={"#00FFF8"} count={50} speed={0.1} position={[0,-30,0]} scale={10} size={10} /> */}
         <Sparkles color={"#003aff"} count={150} speed={0.1} position={[0,-40,0]} scale={10} size={15} />
-{/* <Clouds position={[0,-25,0]} material={THREE.MeshBasicMaterial}>
+<Clouds position={[0,-25,0]} material={THREE.MeshBasicMaterial}>
   <Cloud segments={40} bounds={[0, 10, 2]} volume={20} color="blue" fade={10}/>
   <Cloud seed={1} bounds={[0, 15, 2]} scale={2} volume={8} color="#bd00ff" fade={10} />
 </Clouds>
 
- */}
+
 
   <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
    
