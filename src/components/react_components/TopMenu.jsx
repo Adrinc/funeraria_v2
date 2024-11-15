@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 const TopMenu = () => {
     const links = [
         { name: 'HOME', url: '/', alterurl:"/#home" },
-        { name: 'CONÓCENOS', url: '/#acp', alterurl:"/acp" },
+        { name: 'SPONSORS', url: '/sponsors', alterurl:"/sponsors" },
         { name: 'CURSOS', url: '/#plan', alterurl:"/#plan" },
         { name: 'CONTÁCTANOS', url: '/howitworks', alterurl:"/howitworks" },
        /*  { name: 'SERVICES', url: '/selfservices', alterurl:"/selfservices" }, */
@@ -103,7 +103,7 @@ const TopMenu = () => {
                     </div>
                     <div className='flex flex-row justify-center p-2'>
                         <img
-                        src="/image/logos/logo1.png"
+                        src="/image/logos/logo2.png"
                         className={TopMenuStyle.imagemobile}
                         alt='uwifi logo'
                         width="80" height="50"
@@ -136,7 +136,7 @@ const TopMenu = () => {
 
 <img
  
- src="/image/logos/logo1.png"
+ src="/image/logos/logo2.png"
     alt='uwifi logo'
     width="80" height="50"
     className={TopMenuStyle.image}

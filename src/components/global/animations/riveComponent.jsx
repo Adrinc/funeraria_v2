@@ -1,6 +1,6 @@
 import { useRive, Layout, Fit, Alignment,  EventType, RiveEventType, decodeImage  } from "@rive-app/react-canvas";
-import { useEffect } from 'react';
-
+import { useEffect, useRef } from 'react';
+import './styles.css'; 
 //NOTA: fit puede ser: "cover", "contain", "fill", "fitWidth", "fitHeight"
 
 export const RiveElement = (props) => {
@@ -18,7 +18,7 @@ export const RiveElement = (props) => {
     autoplay: autoplay,
 
     assetLoader: (asset, bytes) => {
-      if (asset.isImage) {
+    /*   if (asset.isImage) {
         const imageAsset = asset;
         if (asset.name === 'flutter') {
             setImage(imageAsset, '/image/flutterr.webp');
@@ -29,11 +29,11 @@ export const RiveElement = (props) => {
             return true;
         }
         // etc
-      }
+      } */
       return false;
     },
   });
-
+  const elementRef = useRef(null);
   const setImage = (asset, imageUrl) => {
     fetch(imageUrl).then(async (res) => {
       const image = await decodeImage(new Uint8Array(await res.arrayBuffer()));
@@ -63,16 +63,22 @@ export const RiveElement = (props) => {
   const onRiveEventReceived = (riveEvent) => {
     const eventData = riveEvent.data;
     const eventProperties = eventData.properties;
+  
+    // Verificar si el evento es de tipo General
     if (eventData.type === RiveEventType.General) {
       console.log(eventData.name);
-      // Added relevant metadata from the event
-
-
-      console.log(eventProperties.mousein);
-      
+  
+      // Cambiar el cursor a pointer si el nombre del evento es 'isClickeable'
+      if (eventData.name === 'isClickeable' && elementRef.current) {
+        elementRef.current.style.cursor = 'pointer';
+      } else if (elementRef.current) {
+        elementRef.current.style.cursor = 'default'; // Restablecer el cursor si no es 'isClickeable'
+      }
+  
     } else if (eventData.type === RiveEventType.OpenUrl) {
       console.log("Event name", eventData.name);
-      // Handle OpenUrl event manually      window.location.href = data.url;
+      // Manejar evento OpenUrl manualmente
+      // window.location.href = data.url;
     }
   };
 

@@ -21,9 +21,10 @@ import IndexSeccion2 from '../../../components/index/Secciones/IndexSeccion2.jsx
 import IndexSeccion3 from '../../../components/index/Secciones/IndexSeccion3.jsx';
 import IndexSeccion4 from '../../../components/index/Secciones/IndexSeccion4.jsx';
 import IndexSeccion5 from '../../../components/index/Secciones/IndexSeccion5.jsx';
-/* import IndexSeccion5 from '../../../components/index/Secciones/DividerNeon2.jsx'; */
+
 import DividerNeon2 from '../../index/DividerRive1.jsx';
 import IndexSeccion6 from '../../index/Secciones/IndexSeccion6.jsx';
+import Footer from '../../global/footer/Footer.jsx';
 
 
 
@@ -49,31 +50,51 @@ export default function Experienc(props) {
 
   
   <Suspense fallback={<Placeholder position-y={0} scale={[2, 3, 2]} />}>
-    <ScrollControls 
-    pages={6} 
-    distance={0.5}
-    maxSpeed={10}
-    prepend={false}
-    style={{/* overflow: 'hidden',  *//* position: 'fixed', */ width: '100%', height: '100vh', zIndex: 1000}}
-    >
+  <ScrollControls
+  pages={6}
+  distance={0.5}
+  maxSpeed={10}
+  prepend={true} 
+  style={{
+    width: '100%', 
+    height: '100vh', 
+    zIndex: 1000,
+    overflowY: 'scroll',  // Para habilitar el scroll vertical
+    scrollbarWidth: 'thin',  // Firefox: scrollbar más delgado
+    scrollbarColor: '#003a8c rgba(0, 0, 0, 0.2)',  // Firefox: thumb color y track color
+    
+    // Webkit para Chrome, Edge, Safari
+    '::-webkit-scrollbar': {
+      width: '8px',  // Ancho del scrollbar
+    },
+    '::-webkit-scrollbar-thumb': {
+      backgroundColor: '#003a8c',  // Color del thumb
+      borderRadius: '8px',  // Bordes redondeados
+      boxShadow: '0 0 6px rgba(0, 0, 0, 0.2)',  // Efecto de sombra
+    },
+    '::-webkit-scrollbar-track': {
+      backgroundColor: 'rgba(0, 0, 0, 0.2)',  // Color de fondo del track
+      borderRadius: '8px',  // Bordes redondeados en el track
+    },
+  }}
+>
       <Scroll>
 
       <Float
-        speed={0.3} // Animation speed, defaults to 1
-        rotationIntensity={0.2} // XYZ rotation intensity, defaults to 1
-        floatIntensity={1} // Up/down float intensity, works like a multiplier with floatingRange,defaults to 1
-        floatingRange={[-0.1, 0.1]} // Range of y-axis values the object will float within, defaults to [-0.1,0.1]
+        speed={0.3} 
+        rotationIntensity={0.2} 
+        floatIntensity={1} 
+        floatingRange={[-0.1, 0.1]} 
       >
 
-    <Llave position={[-2.8, -7, 2]} scale={1.6} rotation={[1.2, 5, 0]} />
+    <Llave position={[-2.8, -7.5, 2]} scale={1.6} rotation={[1.2, 5, 0]} />
       </Float>
 
   
         
 
 
-      {/*   <Sparkles color={"#003aff"} count={150} speed={0.1} position={[0,-25,0]} scale={10} size={10} />
-        <Sparkles color={"#00FFF8"} count={50} speed={0.1} position={[0,-30,0]} scale={10} size={10} /> */}
+
         <Sparkles color={"#003aff"} count={150} speed={0.1} position={[0,-40,0]} scale={10} size={15} />
 <Clouds position={[0,-25,0]} material={THREE.MeshBasicMaterial}>
   <Cloud segments={40} bounds={[0, 10, 2]} volume={20} color="blue" fade={10}/>
@@ -107,8 +128,9 @@ export default function Experienc(props) {
 	  <IndexSeccion3 />
 	  <IndexSeccion4 />
 
-	  <IndexSeccion6 />
 	  <IndexSeccion5 />
+	  <IndexSeccion6 />
+    <Footer />
   </Scroll>
 
     </ScrollControls>

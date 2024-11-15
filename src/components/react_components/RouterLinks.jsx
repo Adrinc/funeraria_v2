@@ -1,19 +1,19 @@
 import { BrowserRouter } from 'react-router-dom'
 import RiveComponent from "../global/animations/riveComponent";
-/* import TopMenu from './TopMenu'; */
+import TopMenu from './TopMenu';
 
 function RoterLinks() {
   return (
     <BrowserRouter>
-    {/*   <TopMenu /> */}
+      <TopMenu />
 
-      <RiveComponent
+{/*       <RiveComponent
           src="/rive/adr-metaverse.riv"
           artboard="Navbar"
           stateMachines="State Machine 1"
           autoplay={true}
           fit="fill"
-        />
+        /> */}
     </BrowserRouter>
   );
 }
