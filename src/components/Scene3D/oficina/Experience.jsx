@@ -55,6 +55,7 @@ export default function Experienc(props) {
   distance={0.5}
   maxSpeed={10}
   prepend={true} 
+  damping={0.1}
   style={{
     width: '100%', 
     height: '100vh', 

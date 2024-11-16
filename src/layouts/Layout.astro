@@ -9,6 +9,7 @@ import FootUWIFI from '../components/global/FootUWIFI.astro';
 import { ViewTransitions } from 'astro:transitions';
 
 
+
 interface Props {
 	showNavBar?: boolean;
 	showFooter?: boolean;
@@ -28,6 +29,8 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
+
+
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<ViewTransitions />
@@ -48,16 +51,7 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 		<slot />
 
 	</main>
-<!-- 	<video 
-	src="/videos/Kaural1.mp4"
-	autoplay 
-	muted 
-	loop 
-	playsinline
-	class="video-background"
-	id="background-video"
-	/>
-	 -->
+
 	</body>
 	
 <!-- 	{showFooter && <FootUWIFI/>} -->
