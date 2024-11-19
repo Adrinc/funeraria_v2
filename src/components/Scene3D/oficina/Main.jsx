@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Canvas } from '@react-three/fiber';
 import Experience from './Experience.jsx';
 import * as THREE from 'three';
-import mainStyle from './mainStyle.module.css';
+
 
 const MyCanvas = () => {
   return <>
