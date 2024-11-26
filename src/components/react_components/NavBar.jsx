@@ -13,8 +13,9 @@ const NavBar = () => {
   return (
     <nav className={styles.navbar}>
       {/* Logo con gradiente */}
-      <div className={styles.logo}>
-        <h>Enter the Metaverse</h>
+      <div className={styles.logopic}>
+       {/* add an image logo */}
+        <img src="/favicon.webp" alt="Logo" />
       </div>
 
       {/* Ícono de menú hamburguesa para móviles */}
@@ -30,16 +31,22 @@ const NavBar = () => {
           <a href="/" className={styles.navLink}>Home</a>
         </li>
         <li className={styles.navItem}>
-          <a href="/sponsors" className={styles.navLink}>Sponsors</a>
+          <a href="/#about" className={styles.navLink}>About us</a>
         </li>
         <li className={styles.navItem}>
-          <a href="/presenters" className={styles.navLink}>Presenters</a>
+          <a href="/#our_adventages" className={styles.navLink}>Adventages</a>
         </li>
         <li className={styles.navItem}>
-          <a href="/schedule" className={styles.navLink}>Schedule</a>
+          <a href="/#our_services" className={styles.navLink}>Services</a>
         </li>
         <li className={styles.navItem}>
-          <a href="/login" className={styles.navLink}>Login</a>
+          <a href="/#tech_stack" className={styles.navLink}>Tech Stack</a>
+        </li>
+        <li className={styles.navItem}>
+          <a href="/#domains" className={styles.navLink}>Domains</a>
+        </li>
+        <li className={styles.navItem}>
+          <a href="/#statistic" className={styles.navLink}>Statistic</a>
         </li>
       </ul>
 
@@ -57,7 +64,7 @@ const NavBar = () => {
       </div>
 
       {/* Botón de comprar tickets */}
-      <Link to="/tickets" className={styles.buyButton}>Buy Tickets</Link>
+      <Link to="/work" className={styles.buyButton}>Work with us</Link>
     </nav>
   );
 };

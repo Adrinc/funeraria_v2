@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background-color: #000;
+  background-color: #0D0E26;
   color: #fff;
   position: relative;
 }
@@ -18,6 +18,17 @@
   background-clip: text;
   color: transparent;
   line-height: 1.2;
+}
+/* Logo img */
+.logopic {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+.logopic img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
 /* Menú de navegación */
@@ -85,7 +96,7 @@
 
 /* Botón de comprar tickets */
 .buyButton {
-  background: linear-gradient(to right, #8b00ff, #00c8ff);
+  background: #444444;
   color: #fff;
   padding: 0.5rem 1.5rem;
   border-radius: 10px;
@@ -94,6 +105,9 @@
   text-transform: uppercase;
   letter-spacing: 0.1em;
   transition: background-color 0.3s;
+  border: 1px solid #7c06eb;
+
+
 }
 
 .buyButton:hover {

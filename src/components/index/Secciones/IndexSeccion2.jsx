@@ -4,7 +4,7 @@ import styles from "../css/indexSeccion2.module.css";
 
 const IndexSeccion2 = () => {
   return (
-    <section id="seccion2" className={styles.sectionss}>
+    <section id="about" className={styles.sectionss}>
       <div className={`${styles.rivecomp} ${styles.web}`}>
         <RiveComponent
           src="/rive/web3.riv"
