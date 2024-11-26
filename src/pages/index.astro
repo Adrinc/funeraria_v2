@@ -1,24 +1,37 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import LayoutBasic from '../layouts/LayoutBasic.astro';
 
 import MyCanvas from '../components/Scene3D/oficina/Main.jsx';
+import IndexSeccion1 from '../components/index/Secciones/IndexSeccion1';
+import IndexSeccion2 from '../components/index/Secciones/IndexSeccion2';
+import IndexSeccion3 from '../components/index/Secciones/IndexSeccion3';
+import IndexSeccion4 from '../components/index/Secciones/IndexSeccion4';
+import IndexSeccion5 from '../components/index/Secciones/IndexSeccion5';
+import IndexSeccion6 from '../components/index/Secciones/IndexSeccion6';
+import IndexSeccion7 from '../components/index/Secciones/IndexSeccion7';
+/* import IndexSeccion8 from '../components/index/Secciones/IndexSeccion8'; */
+import IndexSeccion9 from '../components/index/Secciones/IndexSeccion9';
 
 ---
 
-<Layout title="Home" showFooter={true}>
+<LayoutBasic title="Home" showFooter={true}>
 
 
 
 
 
-		<MyCanvas client:only transition:persist/>
-<!-- 		<div class="h-[100vh] w-[100vw] flex column justify-center align-middle bg-red items-center">
+		<!-- <MyCanvas client:only transition:persist/> -->
+		<IndexSeccion1 client:only transition:persist/>
+		<IndexSeccion2 client:only transition:persist/>
+		<IndexSeccion3 client:only transition:persist/>
+		<IndexSeccion4 client:only transition:persist/>
+		<IndexSeccion5 client:only transition:persist/>
+		<IndexSeccion6 client:only transition:persist/>
+		<IndexSeccion7 client:only transition:persist/>
+<!-- 		<IndexSeccion8 client:only transition:persist/> -->
+		<IndexSeccion9 client:only transition:persist/>
 
-			<button class="w-5 h-5">
-				<a href="/support">About</a>
-			</button>
-		</div> -->
 
 
-</Layout>
+</LayoutBasic>
 

@@ -7,22 +7,14 @@ const IndexSeccion1 = () => {
     <section id="home" className={styles.sectionss}>
       <div className={`${styles.rivecomp} ${styles.web}`}>
         <RiveComponent
-          src="/rive/adr-metaverse.riv"
+          src="/rive/web3.riv"
           artboard="seccion1"
           stateMachines="State Machine 1"
           autoplay={true}
           fit="fill"
         />
       </div>
-{/*       <video
-        src="/videos/cblunavideo.mp4"
-        autoPlay
-        muted
-        loop
-        playsInline
-        className={`${styles.videoBackground}`}
-      />
- */}
+
 
 
     </section>

@@ -7,7 +7,7 @@ const IndexSeccion6 = () => {
     <section id="home" className={styles.sectionss}>
       <div className={`${styles.rivecomp} ${styles.web}`}>
         <RiveComponent
-          src="/rive/adr-metaverse.riv"
+          src="/rive/web3.riv"
           artboard="seccion6"
           stateMachines="State Machine 1"
           autoplay={true}
