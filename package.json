@@ -28,6 +28,7 @@
     "@types/react-dom": "^18.2.15",
     "astro": "^4.3.5",
     "dotenv": "^16.4.5",
+    "gsap": "^3.12.5",
     "keen-slider": "^6.8.6",
     "leva": "^0.9.35",
     "marked": "^9.1.5",

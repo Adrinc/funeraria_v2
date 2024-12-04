@@ -1,0 +1,53 @@
+---
+import Seccion1Canvas from "../../Scene3D/orbita/seccion1_main";
+---
+
+
+
+
+
+<section id="home" >
+
+        <Seccion1Canvas client:only="react" transition:persist/>
+   
+
+</section>
+
+
+
+<style>
+
+  
+section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+  }
+
+  
+  .web {
+    display: block;
+  }
+  
+  .movil {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    .section {
+      cursor: default;
+    }
+    .web {
+      display: none;
+    }
+    .movil {
+      display: block;
+    }
+  }
+  
+</style>

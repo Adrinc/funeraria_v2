@@ -28,16 +28,16 @@ const NavBar = () => {
       {/* Menú de navegación */}
       <ul className={`${styles.navMenu} ${isOpen ? styles.active : ""}`}>
         <li className={styles.navItem}>
-          <a href="/" className={styles.navLink}>Home</a>
+          <a href="/" className={styles.navLink}>Inicio</a>
         </li>
         <li className={styles.navItem}>
-          <a href="/#about" className={styles.navLink}>About us</a>
+          <a href="/#about" className={styles.navLink}>Nosotros</a>
         </li>
         <li className={styles.navItem}>
           <a href="/#our_adventages" className={styles.navLink}>Adventages</a>
         </li>
         <li className={styles.navItem}>
-          <a href="/#our_services" className={styles.navLink}>Services</a>
+          <a href="/#our_services" className={styles.navLink}>Servicios y productos</a>
         </li>
         <li className={styles.navItem}>
           <a href="/#tech_stack" className={styles.navLink}>Tech Stack</a>
@@ -64,7 +64,7 @@ const NavBar = () => {
       </div>
 
       {/* Botón de comprar tickets */}
-      <Link to="/work" className={styles.buyButton}>Work with us</Link>
+      <Link to="/work" className={styles.buyButton}>Contacto</Link>
     </nav>
   );
 };

@@ -4,9 +4,13 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem 2rem;
-  background-color: #0D0E26;
+  background-color: #0d0e2669;
   color: #fff;
   position: relative;
+ 
+  border-bottom: 1px solid #7c06eb;
+  /* blur on background*/
+  backdrop-filter: blur(10px);
 }
 
 /* Logo */
