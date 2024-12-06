@@ -15,7 +15,7 @@ const NavBar = () => {
       {/* Logo con gradiente */}
       <div className={styles.logopic}>
        {/* add an image logo */}
-        <img src="/favicon.webp" alt="Logo" />
+        <img src="/favicon.png" alt="Logo" />
       </div>
 
       {/* Ícono de menú hamburguesa para móviles */}

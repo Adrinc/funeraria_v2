@@ -26,6 +26,15 @@ const Seccion1Canvas = () => {
         regress: 0.5
       }}
      /*  shadows */
+
+     camera={
+      {
+        position: [0, 0, 15],
+        fov: 42,
+        near: 0.1,
+        far: 1000,
+      }
+     }
       gl={{
         antialias: false,
         alpha: true,

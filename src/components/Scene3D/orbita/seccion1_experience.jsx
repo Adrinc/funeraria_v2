@@ -49,8 +49,8 @@ export default function Experienc(props) {
 
       </Float> */}
 
-    <OrbitaModel position={[-1, 0, -18]} scale={1} rotation={[0, 0, 0]} />
-    <TextComponents posicion={[0, -3, -6]} scale={1} rotation={[0, 0, 0]} texto='Creemos productos del futuro, juntos' texto_tamaño={0.5}/>
+    <OrbitaModel position={[-1, 0, -16]} scale={1} rotation={[0, 0, 0]} />
+    <TextComponents posicion={[0, -3, -5]} rotation={[0, 0, 0]} texto='Creemos productos del futuro, juntos' texto_tamaño={0.7}/>
    
 {/*     <group rotation={[10, 10.5, 10]} scale={0.1}>
     <CloudWords count={4} radius={20} />

@@ -45,13 +45,13 @@ spotLight.map = new THREE.TextureLoader().load(   './enviroments/nz.png' );
   
   export const bloomConfig = {
     mipmapBlur: true,
-    intensity: 0.4,
+    intensity: 0.1,
     luminanceThreshold:1,
     luminanceSmoothing:1,
     resolutionX: Resolution.AUTO_SIZE,
     resolutionY: Resolution.AUTO_SIZE,
     kernelSize: 1,
-    blendFunction: BlendFunction.SCREEN,
+    blendingFunction: BlendFunction.SCREEN,
   };
   
   export const noiseConfig = {
