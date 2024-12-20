@@ -42,11 +42,11 @@ export default function Experienc(props) {
           <Vignette {...vignetteConfig} />
           <ChromaticAberration {...chromaticAberrationConfig} />
           <Bloom {...bloomConfig} />
-          {/* <Noise {...noiseConfig} /> */}
+          <Noise {...noiseConfig} />
         </EffectComposer>
       </Suspense>
-{/*   <Environment {...enviromentConfig} />
-  <ambientLight intensity={7} color={'#5d5d5d'} /> */}
+  <Environment {...enviromentConfig} />
+  <ambientLight intensity={7} color={'#5d5d5d'} />
 
   
   <Suspense fallback={<Placeholder position-y={0} scale={[2, 3, 2]} />}>

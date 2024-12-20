@@ -1,10 +1,6 @@
 
 import { BlendFunction, Resolution } from 'postprocessing'
 import * as THREE from 'three'
-// scene_config.js
-
-
-/* LUCES y entorno */
 
  export const enviromentConfig = {
     encoding:THREE.SRGBColorSpace,
@@ -19,24 +15,19 @@ import * as THREE from 'three'
     };
 
     export const pointLightConfig = {
-        name: 'directional_light',
-        castShadow: true,
-        intensity: 16,
-        position: [2.9, 7, 7],
-        penumbra: 0.5,
-        color: '#2e2e30',
-      };
+      name: 'directional_light',
+      castShadow: true,
+      intensity: 10,
+      position: [1.9, 3, 1],
+      penumbra: 0.5,
+      color: '#fff',
+    };
 
 export const vignetteConfig = {
     offset: 0.1,
-    darkness: 0.2,
-    blendFunction: BlendFunction.MULTIPLY,
+    darkness: 0.7,
+    blendFunction: BlendFunction.SCREEN,
   };
-
- export const spotLight = new THREE.SpotLight( 0xffffff );
-spotLight.position.set( 100, 1000, 100 );
-spotLight.map = new THREE.TextureLoader().load(   './enviroments/nz.png' );
-
   
   export const chromaticAberrationConfig = {
     offset: [0.0001, 0.0001],
@@ -45,9 +36,9 @@ spotLight.map = new THREE.TextureLoader().load(   './enviroments/nz.png' );
   
   export const bloomConfig = {
     mipmapBlur: true,
-    intensity: 0.7,
+    intensity: 0.1,
     luminanceThreshold: 1,
-    luminanceSmoothing:5,
+    luminanceSmoothing:1,
     resolutionX: Resolution.AUTO_SIZE,
     resolutionY: Resolution.AUTO_SIZE,
     kernelSize: 1,
@@ -55,13 +46,15 @@ spotLight.map = new THREE.TextureLoader().load(   './enviroments/nz.png' );
   };
   
   export const noiseConfig = {
-    opacity: 0.6,
+    opacity: 0.3,
     blendingFunction: BlendFunction.NORMAL,
     premultiply: true,
   };
   
   export const toneMappingConfig = {
     blendFunction: BlendFunction.SCREEN,
-    mode: 3
+    mode: 2
     };
+
+
 

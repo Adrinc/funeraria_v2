@@ -1,21 +1,5 @@
----
 
-import RiveComponent from "../../global/animations/riveComponent";
-import SeccionTechCanvas from "../../Scene3D/technology/seccion_tech_main";
-
----
-
-
-    <section id="tech_stack">
-      <div class="rivecomp web">
-        <SeccionTechCanvas client:only="react" transition:persist/>
-      </div>
-
-    </section>
-
-    <style>
-      
-section {
+.sectionss {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -23,8 +7,13 @@ section {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    margin-top: 70px;
+    padding:200px;
 
+
+/*     background-image:
+    linear-gradient(rgba(255, 255, 255, 0.1) 2px, transparent 2px), 
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 2px, transparent 2px); 
+  background-size: 25px 25px;  */
   }
 
   
@@ -38,6 +27,7 @@ section {
     height: 100%;
 
     z-index: 2;
+
   }
   
   .web {
@@ -60,4 +50,3 @@ section {
     }
   }
   
-    </style>

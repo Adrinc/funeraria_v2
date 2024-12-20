@@ -7,8 +7,8 @@ import RiveComponent from "../../global/animations/riveComponent";
 <section id="about" >
   <div class="rivecomp web">
     <RiveComponent
-      src="/rive/cbluna.riv"
-      artboard="seccion2"
+      src="/rive/cbluna-nosotros.riv"
+      artboard="nosotros_seccion1"
       stateMachines="State Machine 1"
       autoplay={true}
       fit="fill"
@@ -19,6 +19,9 @@ import RiveComponent from "../../global/animations/riveComponent";
 
   <!-- añade un video -->
 
+  <video id="background-video" loop autoplay muted playsinline >
+    <source src="/videos/cbluna.mp4" type="video/mp4" />
+  </video>
 
 </section>
 
@@ -32,10 +35,20 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 width: 100vw;
-height: 100vh;
+height: 95vh;
 margin-top: 70px;
+background-color: black;
 
-
+}
+video {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: fill;
+z-index: 1;
+opacity: 0.6;
 }
 
 

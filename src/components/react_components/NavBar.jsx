@@ -14,7 +14,6 @@ const NavBar = () => {
     <nav className={styles.navbar}>
       {/* Logo con gradiente */}
       <div className={styles.logopic}>
-       {/* add an image logo */}
         <img src="/favicon.png" alt="Logo" />
       </div>
 
@@ -31,39 +30,42 @@ const NavBar = () => {
           <a href="/" className={styles.navLink}>Inicio</a>
         </li>
         <li className={styles.navItem}>
-          <a href="/#about" className={styles.navLink}>Nosotros</a>
+          <a href="/nosotros" className={styles.navLink}>Nosotros</a>
         </li>
         <li className={styles.navItem}>
-          <a href="/#our_adventages" className={styles.navLink}>Adventages</a>
+          <a href="/proyectos" className={styles.navLink}>Proyectos</a>
         </li>
         <li className={styles.navItem}>
-          <a href="/#our_services" className={styles.navLink}>Servicios y productos</a>
+          <a href="/servicios" className={styles.navLink}>Servicios</a>
         </li>
-        <li className={styles.navItem}>
-          <a href="/#tech_stack" className={styles.navLink}>Tech Stack</a>
-        </li>
-        <li className={styles.navItem}>
-          <a href="/#domains" className={styles.navLink}>Domains</a>
-        </li>
-        <li className={styles.navItem}>
+    {/*     <li className={styles.navItem}>
+          <a href="/tecnologias" className={styles.navLink}>Tecnologias</a>
+        </li> */}
+     {/*    <li className={styles.navItem}>
+          <a href="/dominios" className={styles.navLink}>Dominios</a>
+        </li> */}
+     {/*    <li className={styles.navItem}>
           <a href="/#statistic" className={styles.navLink}>Statistic</a>
-        </li>
+        </li> */}
       </ul>
 
       {/* Iconos de redes sociales */}
-      <div className={styles.socialIcons}>
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-          <img src="/icons/facebook.svg" alt="Facebook" className={styles.icon} />
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-          <img src="/icons/twitter.svg" alt="Twitter" className={styles.icon} />
-        </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-          <img src="/icons/linkedin.svg" alt="LinkedIn" className={styles.icon} />
-        </a>
-      </div>
+      <div
+  className={styles.socialIconsGroup}
+  onClick={() => (window.location.href = '/redesSociales')}
+>
+    <img src="/icons/facebook.svg" alt="Facebook" className={styles.icon} />
+    <img src="/icons/twitter.svg" alt="Twitter" className={styles.icon} />
+    <img src="/icons/linkedin.svg" alt="LinkedIn" className={styles.icon} />
+{/*   <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+  </a>
+  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+  </a>
+  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+  </a> */}
+</div>
 
-      {/* Botón de comprar tickets */}
+      {/* Botón de contacto */}
       <Link to="/work" className={styles.buyButton}>Contacto</Link>
     </nav>
   );
