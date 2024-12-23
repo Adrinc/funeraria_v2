@@ -36,8 +36,8 @@ export const vignetteConfig = {
   
   export const bloomConfig = {
     mipmapBlur: true,
-    intensity: 0.1,
-    luminanceThreshold: 1,
+    intensity: 0.3,
+    luminanceThreshold: 4,
     luminanceSmoothing:1,
     resolutionX: Resolution.AUTO_SIZE,
     resolutionY: Resolution.AUTO_SIZE,

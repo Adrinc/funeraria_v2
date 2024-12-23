@@ -1,59 +1,79 @@
-import { useAnimations, useGLTF, MeshReflectorMaterial } from '@react-three/drei';
+import { useAnimations, useGLTF, MeshReflectorMaterial, Float } from '@react-three/drei';
 import React, { useRef, useEffect, useState } from 'react';
-import HolographicMaterial from './HolographicMaterial';  
+import { gsap } from 'gsap';
+import * as THREE from 'three';
 
-export default function OrbitaModel(props) {
+export default function RedesModel(props) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF('./../models/redes1.gltf', true);
   const { actions } = useAnimations(animations, group);
 
-  const [hovered, setHovered] = useState(false);
+  const [hovered, setHovered] = useState({
+    youtube: false,
+    twitter: false,
+    facebook: false,
+    telegram: false,
+  });
+  const floatConfig = {
+    speed: 2,
+    rotationIntensity: 0.2,
+    floatIntensity: 0.5,
+    floatingRange: [0.05, 0.15],
+  };
 
   useEffect(() => {
     if (actions) {
       Object.keys(actions).forEach((actionName) => {
         console.log(`Reproduciendo animación: ${actionName}`);
         const action = actions[actionName];
-        action.timeScale = 0.5; // Reducir la velocidad a la mitad
-        action.play(); // Reproducir la animación
+        action.timeScale = 0.5; 
+        action.play(); 
       });
     }
   }, [actions]);
 
-  const handlePointerEnter = () => {
+  const handlePointerEnter = (event, platform) => {
     document.body.style.cursor = 'pointer';
-    setHovered(true);
+    setHovered((prev) => ({ ...prev, [platform]: true }));
+    gsap.to(event.object.scale, { x: 1.15, duration: 0.5 });
+    gsap.to(event.object.scale, { y: 1.15, duration: 0.5 });
+    gsap.to(event.object.scale, { z: 1.15, duration: 0.5 });
+
     if (actions) {
       Object.keys(actions).forEach((actionName) => {
-        actions[actionName].paused = true; // Pausar todas las animaciones
+        actions[actionName].paused = true; 
       });
     }
   };
 
-  const handlePointerLeave = () => {
+  const handlePointerLeave = (event, platform) => {
     document.body.style.cursor = 'auto';
-    setHovered(false);
+    setHovered((prev) => ({ ...prev, [platform]: false }));
+    gsap.to(event.object.scale, { y: 1, duration: 0.5 });
+    gsap.to(event.object.scale, { x: 1, duration: 0.5 });
+    gsap.to(event.object.scale, { z: 1, duration: 0.5 });
+
     if (actions) {
       Object.keys(actions).forEach((actionName) => {
-        actions[actionName].paused = false; // Reanudar todas las animaciones
+        actions[actionName].paused = false; 
       });
     }
   };
 
   const openSocialMedia = (url, event) => {
-    event.stopPropagation(); // Detener la propagación del evento
+    event.stopPropagation(); 
     window.open(url, '_blank');
   };
 
   return (
     <group {...props} dispose={null}>
+      <Float {...floatConfig}>
+
       <group
         name="youtube_container"
         position={[1.38, 1.332, 0.134]}
         rotation={[Math.PI, -1.554, Math.PI]}
         scale={[0.099, 1.114, 0.76]}
-        onPointerEnter={handlePointerEnter}
-        onPointerLeave={handlePointerLeave}
         onClick={(event) => openSocialMedia('https://www.youtube.com', event)}
       >
         <mesh
@@ -61,7 +81,9 @@ export default function OrbitaModel(props) {
           castShadow
           receiveShadow
           geometry={nodes.Cube003.geometry}
-          material={materials['background.001']}
+          material={hovered.youtube ? new THREE.MeshBasicMaterial({ color: 0xff0000 }) : materials['background.001']}
+          onPointerEnter={(event) => handlePointerEnter(event, 'youtube')}
+          onPointerLeave={(event) => handlePointerLeave(event, 'youtube')}
         />
         <mesh
           name="Cube003_1"
@@ -92,14 +114,15 @@ export default function OrbitaModel(props) {
           material={materials['text.001']}
         />
       </group>
+      </Float>
+      <Float {...floatConfig}>
 
+   
       <group
         name="twitter_container"
         position={[-4.063, 1.341, 0.363]}
         rotation={[0, -1.425, 0]}
         scale={[0.099, 1.114, 0.76]}
-        onPointerEnter={handlePointerEnter}
-        onPointerLeave={handlePointerLeave}
         onClick={(event) => openSocialMedia('https://www.twitter.com', event)}
       >
         <mesh
@@ -107,7 +130,9 @@ export default function OrbitaModel(props) {
           castShadow
           receiveShadow
           geometry={nodes.Cube005.geometry}
-          material={materials['background.002']}
+          material={hovered.twitter ? new THREE.MeshBasicMaterial({ color: 0x1DA1F2 }) : materials['background.002']}
+          onPointerEnter={(event) => handlePointerEnter(event, 'twitter')}
+          onPointerLeave={(event) => handlePointerLeave(event, 'twitter')}
         />
         <mesh
           name="Cube005_1"
@@ -138,17 +163,16 @@ export default function OrbitaModel(props) {
           material={materials['text.002']}
         />
       </group>
-
+      </Float>
+      <Float {...floatConfig}>
       <group
         name="facebook_container"
         position={[3.78, 1.299, 0.818]}
         rotation={[Math.PI / 2, 0, 0.465]}
         scale={[4.837, 3.136, 5.287]}
-        onPointerEnter={handlePointerEnter}
-        onPointerLeave={handlePointerLeave}
         onClick={(event) => openSocialMedia('https://www.facebook.com', event)}
       >
-        <mesh
+               <mesh
           name="Curve006"
           castShadow
           receiveShadow
@@ -174,7 +198,9 @@ export default function OrbitaModel(props) {
           castShadow
           receiveShadow
           geometry={nodes.Curve006_3.geometry}
-          material={materials['background.003']}
+          material={hovered.facebook ? new THREE.MeshBasicMaterial({ color: 0x0023ff }) : materials['background.003']}
+          onPointerEnter={(event) => handlePointerEnter(event, 'facebook')}
+          onPointerLeave={(event) => handlePointerLeave(event, 'facebook')}
         />
         <mesh
           name="Curve006_4"
@@ -184,14 +210,13 @@ export default function OrbitaModel(props) {
           material={materials['text.004']}
         />
       </group>
-
+      </Float>
+      <Float {...floatConfig}>
       <group
         name="telegram_container"
         position={[-1.194, 1.337, -0.082]}
         rotation={[Math.PI, -1.554, Math.PI]}
         scale={[0.099, 1.114, 0.76]}
-        onPointerEnter={handlePointerEnter}
-        onPointerLeave={handlePointerLeave}
         onClick={(event) => openSocialMedia('https://www.telegram.org', event)}
       >
         <mesh
@@ -199,7 +224,9 @@ export default function OrbitaModel(props) {
           castShadow
           receiveShadow
           geometry={nodes.Cube.geometry}
-          material={materials.background}
+          material={hovered.telegram ? new THREE.MeshBasicMaterial({ color: 0x9e00ff }) : materials.background}
+          onPointerEnter={(event) => handlePointerEnter(event, 'telegram')}
+          onPointerLeave={(event) => handlePointerLeave(event, 'telegram')}
         />
         <mesh
           name="Cube_1"
@@ -230,19 +257,34 @@ export default function OrbitaModel(props) {
           material={materials['text.003']}
         />
       </group>
-
-      <mesh rotation={[-Math.PI / 2, 0, 0]}>
+      </Float>
+      <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} >
         <planeGeometry args={[50, 50]} />
         <MeshReflectorMaterial
           blur={[500, 100]}
           resolution={2048}
           mixBlur={1}
           mixStrength={20}
-          roughness={1}
+          roughness={0}
           depthScale={2}
           minDepthThreshold={0.4}
           maxDepthThreshold={1.4}
-          color="#212121"
+          color="#0D0E26"
+          metalness={0.5}
+        />
+      </mesh>
+      <mesh position={[0, 0, -3]}>
+        <planeGeometry args={[50, 50]} />
+        <MeshReflectorMaterial
+          blur={[500, 100]}
+          resolution={2048}
+          mixBlur={1}
+          mixStrength={20}
+          roughness={0}
+          depthScale={2}
+          minDepthThreshold={0.4}
+          maxDepthThreshold={1.4}
+          color="#0D0E26"
           metalness={0.5}
         />
       </mesh>

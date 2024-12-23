@@ -1,5 +1,5 @@
-import { Text, Sparkles, Environment, ScrollControls, useScroll, OrbitControls, Scroll,AdaptiveDpr, Float  } from '@react-three/drei';
-import { Perf } from 'r3f-perf';
+import { AdaptiveDpr } from '@react-three/drei';
+
 import React, { Suspense, useState, useRef, useEffect } from 'react';
 import Placeholder from './Placeholder';
 import { ToneMapping, ChromaticAberration, Bloom, EffectComposer, Noise, Vignette } from '@react-three/postprocessing';
@@ -22,13 +22,13 @@ export default function Experienc(props) {
       <Suspense fallback={null}>
         <EffectComposer multisampling={1}>
           <ToneMapping {...toneMappingConfig} />
-          <ChromaticAberration {...chromaticAberrationConfig} />
+        {/*   <ChromaticAberration {...chromaticAberrationConfig} /> */}
           <Bloom {...bloomConfig} />
-          <Noise {...noiseConfig} />
-          <Vignette {...vignetteConfig} />
+   {/*        <Noise {...noiseConfig} /> */}
+  {/*         <Vignette {...vignetteConfig} /> */}
         </EffectComposer>
       </Suspense>
-  <Environment {...enviromentConfig} />
+{/*   <Environment {...enviromentConfig} /> */}
   <ambientLight intensity={1} color={'#5d5d5d'} />
 
   
@@ -37,7 +37,7 @@ export default function Experienc(props) {
 
 
     <RedesModel position={[0, -2, 5]} scale={1} rotation={[0, 0, 0]} />
-    <TextComponents posicion={[0, 2, 0]} rotation={[0, 0, 0]} texto='Redes Sociales' texto_tamaño={1}/>
+    <TextComponents posicion={[0, 2, 2]} rotation={[0, 0, 0]} texto='Redes Sociales' texto_tamaño={1}/>
    
   </Suspense>
 
