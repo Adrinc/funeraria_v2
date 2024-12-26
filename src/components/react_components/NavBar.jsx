@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import styles from "./navbar.module.css";
 
 const NavBar = () => {
@@ -38,15 +37,6 @@ const NavBar = () => {
         <li className={styles.navItem}>
           <a href="/servicios" className={styles.navLink}>Servicios</a>
         </li>
-    {/*     <li className={styles.navItem}>
-          <a href="/tecnologias" className={styles.navLink}>Tecnologias</a>
-        </li> */}
-     {/*    <li className={styles.navItem}>
-          <a href="/dominios" className={styles.navLink}>Dominios</a>
-        </li> */}
-     {/*    <li className={styles.navItem}>
-          <a href="/#statistic" className={styles.navLink}>Statistic</a>
-        </li> */}
       </ul>
 
       {/* Iconos de redes sociales */}
@@ -57,16 +47,12 @@ const NavBar = () => {
     <img src="/icons/facebook.svg" alt="Facebook" className={styles.icon} />
     <img src="/icons/twitter.svg" alt="Twitter" className={styles.icon} />
     <img src="/icons/linkedin.svg" alt="LinkedIn" className={styles.icon} />
-{/*   <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-  </a>
-  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-  </a>
-  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-  </a> */}
+
 </div>
 
-      {/* Botón de contacto */}
-      <Link to="/work" className={styles.buyButton}>Contacto</Link>
+      <div className="hidden md:block ">
+                    <div className="flex items-center justify-end"><a className={styles.buyButton} href="/contacto">Contacto</a></div>
+                </div>
     </nav>
   );
 };

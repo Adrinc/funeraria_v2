@@ -127,7 +127,7 @@
 }
 
 .buyButton {
-  background: #444444;
+  background: linear-gradient(145deg, #0b1222, #1b2b4a);
   color: #fff;
   padding: 0.5rem 1.5rem;
   border-radius: 10px;
@@ -135,12 +135,15 @@
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
   border: 1px solid #7c06eb;
 }
 
 .buyButton:hover {
-  background: linear-gradient(to right, #a000ff, #00d4ff);
+/*   background: linear-gradient(to right, #a000ff, #00d4ff); */
+  color: #00c8ff;
+  background: linear-gradient(145deg, #1b2b4a, #0b1222);
+  box-shadow: inset 3px 3px 6px #a000ff, inset -3px -3px 6px #00d4ff;
 }
 
 .hamburger {

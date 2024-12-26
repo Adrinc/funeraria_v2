@@ -1,7 +1,7 @@
 ---
 import RiveComponent from "../../global/animations/riveComponent";
-import styles from "../css/indexSeccion4.module.css";
 
+import BotonStyle1 from "../../global/BotonSt1.astro";
 ---
 
 
@@ -15,6 +15,16 @@ import styles from "../css/indexSeccion4.module.css";
           fit="fill"
           client:only="react" 
           transition:persist
+        />
+      </div>
+
+      <div class="boton">
+        <BotonStyle1
+          link="/proyectos"
+          texto={"Nuestros servicios"}
+          fontsize="28px"
+          fontweight="bold"
+          showIcon={false}
         />
       </div>
 
@@ -48,36 +58,16 @@ import styles from "../css/indexSeccion4.module.css";
       
       z-index: 2;
       }
+      .boton {
+    position: absolute;
+    top: 77%;
+    left: 67%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
       
       
-      
-      .riveContainerMainCircle {
-      position: absolute;
-      display: flex;
-      top: -30%;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: center;
-      width: 100vw;
-      height: 750px;
-      z-index: 30;
-      
-      
-      }
-      
-      
-      .riveCircle {
-      
-      display: flex;
-      
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 750px;
-      height: 100%;
-      z-index: 10;
-      
-      }
+
       
       .web {
       display: block;

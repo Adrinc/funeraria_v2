@@ -1,7 +1,8 @@
 ---
 import React from "react";
 import RiveComponent from "../../global/animations/riveComponent";
-import styles from "../css/indexSeccion3.module.css";
+import BotonStyle1 from "../../global/BotonSt1.astro";
+
 
 ---
 
@@ -19,6 +20,15 @@ import styles from "../css/indexSeccion3.module.css";
         />
       </div>
       <div class="esfera"/>
+      <div class="boton">
+        <BotonStyle1
+        link="/proyectos"
+        texto={"Nuestros proyectos"}
+        fontsize="28px"
+        fontweight="bold"
+        showIcon={false}
+      />
+      </div>
     </section>
   
 
@@ -38,7 +48,7 @@ section {
   .esfera {
     position: absolute;
     top: 50%;
-      left: 100%; /* Mueve la esfera a la derecha */
+    left: 100%; 
     transform: translate(-50%, -50%);
     
     width: 1750px;
@@ -46,6 +56,13 @@ section {
     /* gradiente de color 375BEB a transparente radial centrado */
     background: radial-gradient(circle at center, #375beb4a 0%, #1a0a4e1c 30%, transparent 100%);
     z-index: -1;
+  }
+  .boton {
+    position: absolute;
+    top: 80%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
   }
 
   .rivecomp {

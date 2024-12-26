@@ -4,8 +4,13 @@ import RiveComponent from "../../global/animations/riveComponent";
 
 ---
 
+<div class="centered-text">
+  <h1 class="large-text white-text">Explora nuestras soluciones</h1>
+  <h2 class="large-text bold-text gradient-text">innovadoras y personalizadas</h2>
+</div>
 <section id="about" >
   <div class="rivecomp web">
+
     <RiveComponent
       src="/rive/cbluna.riv"
       artboard="seccion2"
@@ -17,7 +22,7 @@ import RiveComponent from "../../global/animations/riveComponent";
     />
   </div>
 
-  <!-- añade un video -->
+
 
 
 </section>
@@ -37,7 +42,28 @@ margin-top: 70px;
 
 
 }
+.centered-text {
+  text-align: center;
+}
 
+.large-text {
+  font-size: 5em; /* Aumenta el tamaño de las letras del h1 */
+}
+
+.white-text {
+  color: white;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.gradient-text {
+  font-size: 4em; /* Tamaño más grande para el h2 pero no tanto como el h1 */
+  background: linear-gradient(to right, #B43BFF, #55D9FF);
+  -webkit-background-clip: text;
+  color: transparent;
+}
 
 
 .rivecomp {

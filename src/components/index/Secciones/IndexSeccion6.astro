@@ -5,7 +5,10 @@ import SeccionTechCanvas from "../../Scene3D/technology/seccion_tech_main";
 
 ---
 
-
+<div class="centered-text">
+  <h1 class="large-text white-text">Descubre la innovación tecnológica</h1>
+  <h2 class="large-text bold-text gradient-text">detrás de nuestros proyectos</h2>
+</div>
     <section id="tech_stack">
       <div class="rivecomp web">
         <SeccionTechCanvas client:only="react" transition:persist/>
@@ -23,9 +26,32 @@ section {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    margin-top: 70px;
+
 
   }
+  .centered-text {
+  text-align: center;
+}
+
+.large-text {
+  font-size: 5em; /* Aumenta el tamaño de las letras del h1 */
+}
+
+.white-text {
+  color: white;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
+.gradient-text {
+  font-size: 4em; /* Tamaño más grande para el h2 pero no tanto como el h1 */
+  background: linear-gradient(to right, #B43BFF, #55D9FF);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
 
   
   .rivecomp {
