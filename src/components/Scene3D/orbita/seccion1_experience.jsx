@@ -37,8 +37,8 @@ export default function Experienc(props) {
   <ambientLight intensity={10} color={'#5d5d5d'} />
 
   
-  <Suspense fallback={<Placeholder position-y={0} scale={[2, 3, 2]} />}>
-
+{/*   <Suspense fallback={<Placeholder position-y={0} scale={[2, 3, 2]} />}>
+ */}
 
 
     <OrbitaModel position={[-1, 0, -16]} scale={1} rotation={[0, 0, 0]} />
@@ -59,7 +59,7 @@ export default function Experienc(props) {
 
     
 
-  </Suspense>
+{/*   </Suspense> */}
 
 </>
   );

@@ -32,14 +32,14 @@ export default function Experienc(props) {
   <ambientLight intensity={1} color={'#5d5d5d'} />
 
   
-  <Suspense fallback={<Placeholder position-y={0} scale={[2, 3, 2]} />}>
+{/*   <Suspense fallback={<Placeholder position-y={0} scale={[2, 3, 2]} />}> */}
 
 
 
     <RedesModel position={[0, -2, 5]} scale={1} rotation={[0, 0, 0]} />
     <TextComponents posicion={[0, 2, 2]} rotation={[0, 0, 0]} texto='Redes Sociales' texto_tamaño={1}/>
    
-  </Suspense>
+{/*   </Suspense> */}
 
 </>
   );
