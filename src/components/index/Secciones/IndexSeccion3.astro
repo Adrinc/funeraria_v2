@@ -1,24 +1,36 @@
 ---
-import React from "react";
+
 import RiveComponent from "../../global/animations/riveComponent";
-import styles from "../css/indexSeccion3.module.css";
+
 
 ---
 
 
-    <section id="our_adventages" >
+    <section id="opciones"  class="fade-in-section">
       <div class="rivecomp web">
         <RiveComponent
-          src="/rive/cbluna-proyectos.riv"
-          artboard="index_carrusel"
+          src="/rive/funeraria.riv"
+          artboard="opciones_funerarias_seccion"
           stateMachines="State Machine 1"
           autoplay={true}
-          fit="fill"
+          fit="cover"
           client:only="react"
           transition:persist
         />
       </div>
-      <div class="esfera"/>
+      <div class="rivecomp movil">
+
+        <RiveComponent 
+        src="/rive/funeraria.riv" 
+        artboard="opciones_funerarias_seccion_movil"
+        stateMachines="State Machine 1"
+        autoplay={true} 
+        transition:persist 
+        fit="fill"
+        client:only/>
+      
+      
+        </div>
     </section>
   
 
@@ -31,22 +43,10 @@ section {
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 75vh;
-
+    height: 100vh;
   }
 
-  .esfera {
-    position: absolute;
-    top: 50%;
-      left: 100%; /* Mueve la esfera a la derecha */
-    transform: translate(-50%, -50%);
-    
-    width: 1750px;
-    height: 1750px;
-    /* gradiente de color 375BEB a transparente radial centrado */
-    background: radial-gradient(circle at center, #375beb4a 0%, #1a0a4e1c 30%, transparent 100%);
-    z-index: -1;
-  }
+
 
   .rivecomp {
     position: absolute;
@@ -61,34 +61,18 @@ section {
   }
 
 
+  .fade-in-section {
+  opacity: 0;
+  transform: translateY(100px); /* Empieza ligeramente más abajo */
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  will-change: opacity, transform;
+}
 
-  .riveContainerMainCircle {
-    position: absolute;
-    display: flex;
-    top: -30%;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    width: 100vw;
-    height: 750px;
-    z-index: 30;
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0); /* Vuelve a su posición original */
+}
 
-
-  }
-
-
-  .riveCircle {
-
-    display: flex;
- 
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 750px;
-    height: 100%;
-    z-index: 10;
-
-  }
   
   .web {
     display: block;
@@ -99,8 +83,9 @@ section {
   }
   
   @media (max-width: 768px) {
-    .section {
+    section {
       cursor: default;
+      height: 300vh;
     }
     .web {
       display: none;
@@ -112,3 +97,22 @@ section {
   
 </style>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".fade-in-section");
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // Deja de observar después de activarse
+          }
+        });
+      },
+      { threshold: 0.3 } // El efecto se activará cuando el 20% del elemento sea visible
+    );
+
+    sections.forEach(section => observer.observe(section));
+  });
+</script>

@@ -1,29 +1,35 @@
 ---
 import LayoutBasic from '../layouts/LayoutBasic.astro';
+
 import IndexSeccion1 from '../components/index/Secciones/IndexSeccion1.astro';
 import IndexSeccion2 from '../components/index/Secciones/IndexSeccion2.astro';
-import IndexSeccion3 from '../components/index/Secciones/IndexSeccion3.astro';
+import Opciones from '../components/index/Secciones/IndexSeccion3.astro';
 import IndexSeccion4 from '../components/index/Secciones/IndexSeccion4.astro';
-import IndexSeccion5 from '../components/index/Secciones/IndexSeccion5.astro';
-import IndexSeccion6 from '../components/index/Secciones/IndexSeccion6.astro';
+import Ubicacion from '../components/index/Secciones/IndexSeccion5.astro';
+import Nosotros from '../components/index/Secciones/IndexSeccion6.astro';
+import Planes from '../components/index/Secciones/IndexSeccion7.astro';
+import ContactoSeccion from '../components/contacto/ContactoSeccion.astro';
+import { isEnglish } from '../data/variables';
 
 
+
+const ingles = isEnglish.get();
 ---
 
 <LayoutBasic title="Home" showFooter={true}>
+	
 
 
 
-
-
-	<IndexSeccion1/>
+	<IndexSeccion1 ingles={ingles}/>
+	
 	<IndexSeccion2/>
-	<IndexSeccion3/>
+	<Nosotros/>
+	<Planes/>
+	<Opciones/>
+	<Ubicacion/>
 	<IndexSeccion4/>
-	<IndexSeccion5/>
-	<IndexSeccion6/>
-
-
+	<ContactoSeccion/>
 
 
 </LayoutBasic>

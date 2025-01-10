@@ -1,20 +1,20 @@
 /* Contenedor principal */
 .container {
-    background-color: #0D0E26;
+    background-color: #5F331D;
     color: white;
     padding: 2rem;
     border-radius: 8px;
     max-width: 600px;
     margin: 2rem auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    border-left: 4px solid #7c06eb;
-    border-right: 4px solid #7c06eb;
+/*     border-left: 4px solid #CD915D;
+    border-right: 4px solid #CD915D; */
 }
 
 /* Título */
 .title {
     font-size: 1.5rem;
-    color: #B43BFF;
+    color: #ffffff;
     margin-bottom: 1.5rem;
     text-align: center;
 }
@@ -49,35 +49,36 @@
 .textarea {
     font-size: 1rem;
     padding: 0.75rem;
-    border: 1px solid #55D9FF;
+    border: 1px solid #CD915D;
     border-radius: 4px;
-    background-color: #0D0E26;
-    color: white;
+    background-color: #fff9f4;
+    color: black;
     flex: 1;
 }
 
 .input:focus,
 .textarea:focus {
     outline: none;
-    border-color: #B43BFF;
-    box-shadow: 0 0 4px #B43BFF;
+    border-color: #CD915D;
+    box-shadow: 0 0 4px #CD915D;
 }
 
 /* Botón de envío */
 .submitButton {
-    font-size: 1rem;
+    font-size: 1.25rem;
     padding: 0.75rem;
+    margin-left: 30px;
     border: none;
     border-radius: 4px;
-    background-color: #55D9FF;
+    background-color: #CD915D;
     color: #0D0E26;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .submitButton:hover {
-    background-color: #B43BFF;
-    color: white;
+    background-color: rgb(255, 162, 0);
+    color: black;
 }
 
 /* Iconos */

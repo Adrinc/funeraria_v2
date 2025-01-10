@@ -1,81 +1,57 @@
 ---
-import RiveComponent from "../../global/animations/riveComponent";
+
+import GoogleMaps from "../../react_components/GoogleMap";
 ---
 
 
-    <section id="our_services">
-      <div class="rivecomp web">
-        <RiveComponent
-          src="/rive/cbluna.riv"
-          artboard="seccion4"
-          stateMachines="State Machine 1"
-          autoplay={true}
-          fit="fill"
+    <section id="direccion" class="fade-in-section">
+   
+        <GoogleMaps
           client:only="react" 
           transition:persist
         />
-      </div>
-      <div class="esfera"/>
+  
+
     </section>
 
 
 <style> 
 
-section {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 100vw;
-      height: 100vh;
 
-      }
    
-      .rivecomp {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100%;
       
-      z-index: 2;
-      }
-      
-
-.esfera {
-  position: absolute;
-  top: 10%;
-    left: 10%; /* Mueve la esfera a la derecha */
-  transform: translate(-50%, -50%);
-  
-  width: 1750px;
-  height: 1750px;
-  /* gradiente de color 375BEB a transparente radial centrado */
-  background: radial-gradient(circle at center, #375beb4a 0%, #1a0a4e1c 30%, transparent 100%);
-  z-index: -1;
+      .fade-in-section {
+  opacity: 0;
+  transform: translateY(100px); /* Empieza ligeramente más abajo */
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  will-change: opacity, transform;
 }
 
-.web {
-  display: block;
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0); /* Vuelve a su posición original */
 }
 
-.movil {
-  display: none;
-}
 
-@media (max-width: 768px) {
-  .section {
-    cursor: default;
-  }
-  .web {
-    display: none;
-  }
-  .movil {
-    display: block;
-  }
-}
+
 
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".fade-in-section");
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // Deja de observar después de activarse
+          }
+        });
+      },
+      { threshold: 0.3 } // El efecto se activará cuando el 20% del elemento sea visible
+    );
+
+    sections.forEach(section => observer.observe(section));
+  });
+</script>

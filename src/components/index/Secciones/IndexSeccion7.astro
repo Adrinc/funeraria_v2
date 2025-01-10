@@ -8,8 +8,8 @@ import RiveComponent from "../../global/animations/riveComponent";
     <section id="domains">
       <div class="rivecomp web">
         <RiveComponent
-          src="/rive/cbluna.riv"
-          artboard="seccion7"
+          src="/rive/funeraria.riv"
+          artboard="planes_seccion"
           stateMachines="State Machine 1"
           autoplay={true}
           fit="fill"
@@ -18,8 +18,19 @@ import RiveComponent from "../../global/animations/riveComponent";
         />
       </div>
 
+      <div class="rivecomp movil">
 
-      <div class="esfera"/>
+        <RiveComponent 
+        src="/rive/funeraria.riv" 
+        artboard="planes_seccion_movil"
+        stateMachines="State Machine 1"
+        autoplay={true} 
+        transition:persist 
+        fit="fill"
+        client:only/>
+      
+        </div>
+     
     </section>
 
 
@@ -33,13 +44,9 @@ section {
       justify-content: center;
       align-items: center;
       width: 100vw;
-      height: 95vh;
- 
-/*       background-image: url('/image/bgs/peoplebg1.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center; */
-      
+      height: 100vh;
+      antialiased: true;
+      -webkit-font-smoothing: antialiased;
       }
 
    
@@ -56,18 +63,6 @@ section {
       }
       
 
-.esfera {
-  position: absolute;
-  top:20%;
-  left: 90%; 
-  transform: translate(-50%, -50%);
-  
-  width: 1750px;
-  height: 1750px;
-
-  background: radial-gradient(circle at center, #375beb4a 0%, #1a0a4e1c 30%, transparent 100%);
-  z-index: -1;
-}
 
 .web {
   display: block;
@@ -78,8 +73,10 @@ section {
 }
 
 @media (max-width: 768px) {
-  .section {
+  section {
     cursor: default;
+    height: 1500px;
+ 
   }
   .web {
     display: none;

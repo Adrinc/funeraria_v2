@@ -1,7 +1,7 @@
 ---
 
 /* import TopMenu from '../components/TopMenu.astro'; */
-import TopMenu from '../components/react_components/TopMenu.jsx';
+import TopMenu from '../components/react_components/TopMenu.astro';
 import RouterLinks from '../components/react_components/RouterLinks.jsx';
 import TopMenuSuffle from '../components/header/TopMenuSuffle.astro';
 
@@ -37,8 +37,9 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 	</head>
 	<header>
 
-		<RouterLinks  transition:persist client:only />
+<!-- 		<RouterLinks  transition:persist client:only /> -->
 	<!-- 	<TopMenuSuffle client:only/> -->
+		<TopMenu />
 	
 		
 	</header>
@@ -51,10 +52,10 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 		<slot />
 
 	</main>
-
-	</body>
 	
-	{showFooter && <FootUWIFI/>}
+</body>
+
+{showFooter && <FootUWIFI/>}
 </html>
 
 <!-- <script>
@@ -181,16 +182,18 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
     user-select:none;
 	box-sizing: border-box;
 	scroll-behavior: smooth;
-	background-color: #0D0E26;
+	/* Background lineal from #E2D5C4  to #F8F5EE, left to right */
+
+	background: linear-gradient(to right, #E2D5C4, #FBFAF5);
 	
     overflow-y: scroll;
-  scrollbar-width: thin; /* Firefox: Scrollbar más delgado */
-  scrollbar-color: #003a8c rgba(0, 0, 0, 0.2); /* Firefox: Color del thumb y track */
+  	scrollbar-width: thin; /* Firefox: Scrollbar más delgado */
+  	scrollbar-color: #5A2F1A #FBFAF5; /* Firefox: Color del thumb y track */
 	}
     
 	body{
 		font-family: var(--font-family-primary);
-		background: #0D0E26;
+		background: linear-gradient(to right, #E2D5C4, #FBFAF5);
 		z-index: 0;
 	/* 	overflow: hidden; */
 	}
@@ -199,7 +202,7 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 	main {
 		position: relative;
 		z-index: 0;
-/* 		background-color: #00000000 */
+		background: linear-gradient(to right, #E2D5C4, #FBFAF5);
 
 	}
 
@@ -216,7 +219,7 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
 	  z-index: 1000;
 	  font-family: var(--font-family-primary);
 	}
-	footer {
+/* 	footer {
 		position: static;
 		display: flex;
         flex-direction: row;
@@ -229,12 +232,12 @@ const {title, showNavBar=true, showFooter=true, dataLayout, seoData } = Astro.pr
         padding-left: clamp(0px, 5vw, 100px);
 		padding-right: clamp(0px, 5vw, 100px);
         gap:20px;
-        background-color: #0D0E26;
+        background-color: #5A2F1A;
         z-index: 1000;
 
 
 	}
-
+ */
   
 
 

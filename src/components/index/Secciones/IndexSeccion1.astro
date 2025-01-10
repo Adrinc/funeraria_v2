@@ -1,65 +1,127 @@
 ---
-import Seccion1Canvas from "../../Scene3D/orbita/seccion1_main";
+
+import RiveComponent from "../../global/animations/riveComponent";
+interface Props{
+  ingles: boolean;
+}
+
+const {ingles} = Astro.props;
 ---
 
 
-
-
-
 <section id="home" >
+<!--   <h1 id="text_valor" class=" text-xl w-50 h-50 bg-black z-50 text-center text-white"> El valor es: {ingles.toString()} </h1> -->
+  <div class="rivecomp web">
+    <RiveComponent
+      src="/rive/funeraria.riv"
+      artboard="Hero 1"
+      stateMachines="State Machine 1"
+      autoplay={true}
+      fit="fill"
+      client:only="react"
+      transition:persist
+      ingles={ingles}
 
-        <Seccion1Canvas client:only="react" transition:persist/>
-   
-        <div class="esfera"/>
+    />
+  </div>
+  <div class="rivecomp movil">
+
+    <RiveComponent 
+    src="/rive/funeraria.riv" 
+    artboard="Hero 1_movil 2"
+    stateMachines="State Machine 1"
+    autoplay={true} 
+    transition:persist 
+    fit="fill"
+    client:only
+    ingles={ingles}
+    />
+
+    </div>
+
+
+  <video id="background-video" 
+  loop 
+  autoplay 
+  muted 
+  playsinline
+  >
+    <source src="/videos/f1.mp4" type="video/mp4" />
+  </video>
+
 </section>
-
 
 
 <style>
 
-  
 section {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+position: relative;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 100vw;
+height: 100vh;
+/* margin-top: 70px; */
+-webkit-font-smoothing: antialiased;
 
-  }
+}
+video {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+object-fit: fill;
+z-index: 1;
+opacity: 1;
+}
 
-  .esfera {
-    position: absolute;
-    top: 10%;
-      left: 10%; /* Mueve la esfera a la derecha */
-    transform: translate(-50%, -50%);
-    
-    width: 1750px;
-    height: 1750px;
-    /* gradiente de color 375BEB a transparente radial centrado */
-    background: radial-gradient(circle at center, #375beb4a 0%, #1a0a4e1c 30%, transparent 100%);
-    z-index: -1;
-  }
 
-  .web {
-    display: block;
-  }
-  
-  .movil {
-    display: none;
-  }
-  
-  @media (max-width: 768px) {
-    .section {
-      cursor: default;
-    }
-    .web {
-      display: none;
-    }
-    .movil {
-      display: block;
-    }
-  }
-  
+
+.rivecomp {
+position: absolute;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 100%;
+
+z-index: 2;
+}
+
+
+
+
+.web {
+display: block;
+}
+
+.movil {
+display: none;
+}
+
+@media (max-width: 768px) {
+section {
+  cursor: default;
+  height: 100vh;
+margin-top: 0px;
+}
+.web {
+  display: none;
+}
+.movil {
+  display: block;
+}
+.rivecomp {
+  width: 100vw;
+}
+
+video {
+  height: 70%;
+  top: 0%;
+}
+}
+
 </style>

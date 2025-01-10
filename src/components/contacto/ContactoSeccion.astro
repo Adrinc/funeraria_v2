@@ -1,8 +1,10 @@
 ---
 import FormContact from '../react_components/FormContacto/FormContacto.jsx';
 ---
-
-<section id="Contacto">
+<div class="centered-text">
+  <h1 class="large-text white-text">DÉJENOS SUS DATOS Y CON GUSTO LE ASESORAMOS</h1>
+</div>
+<section id="contacto">
   <div class="container">
     <div class="form-column">
       <FormContact client:only="react" transition:persist/>
@@ -12,11 +14,10 @@ import FormContact from '../react_components/FormContacto/FormContacto.jsx';
       <div class="container_info">
 
         <img src="./favicon.png" alt="Logo" class="logo"/>
-        <h1 class="title">¡Hablemos!</h1>
-        <p class="description">Nos encantaría conocerte y descubrir cómo podemos impulsar tu negocio juntos.</p>
+        <h1 class="title">Apoyo inmediato</h1>
+        <p class="description">Estamos para ayudarle</p>
       </div>
     </div>
-  <div class="esfera"/>
 </section>
 
 <style>
@@ -26,12 +27,26 @@ section {
   justify-content: space-around;
   align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 60vh;
   padding: 0 20px;
-
+  background-color: #5a3e19;
   
 }
 
+.centered-text {
+  text-align: center;
+  background-color: #4f2b18;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.large-text {
+  font-size: 3.5em; 
+}
+
+.white-text {
+  color: white;
+}
 .container {
   display: flex;
   flex-direction: row;
@@ -80,7 +95,6 @@ section {
   margin-bottom: 10px;
   color: #ffffff;
   font-weight: bold;
-  color: #47f6ff; /* Cambia el color del título */
 }
 
 .description {
@@ -91,19 +105,7 @@ section {
   margin-top: 20px; /* Añade un margen superior para separar del título */
 }
 
-.esfera {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100vw; /* Asegúrate de que no exceda el ancho de la ventana */
-  height: 100vh; /* Asegúrate de que no exceda la altura de la ventana */
-  max-width: 2500px; /* Tamaño máximo razonable para la esfera */
-  max-height: 2500px; /* Tamaño máximo razonable para la esfera */
-  background: radial-gradient(circle at center, #375beb4a 0%, #1a0a4e1c 30%, transparent 100%);
-  z-index: -1;
-  pointer-events: none; /* Asegúrate de que no interfiera con clics u otras interacciones */
-}
+
 
 .web {
   display: block;
@@ -138,11 +140,16 @@ section {
   .form-column {
     order: 1; /* Mantén la columna del formulario en la parte inferior */
   }
+  .large-text {
+  font-size: 2.5em; 
+}
+.logo {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
 
-  .esfera {
-    width: 1200px; /* Reduce el tamaño de la esfera en móvil */
-    height: 1200px;
-  }
+
 }
 
 </style>
