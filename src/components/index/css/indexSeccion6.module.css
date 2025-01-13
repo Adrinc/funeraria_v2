@@ -1,45 +1,122 @@
+.section {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: auto;
+  box-sizing: border-box;
+  margin: 35px 0;
+}
 
-.sectionss {
-    position: relative;
-    display: flex;
+.fadeInSection {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  will-change: opacity, transform;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  gap: 30px;
+}
+
+.textGroup {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.decorativeImage {
+  width: 75px;
+  height: auto;
+  margin-bottom: -10px;
+}
+
+.h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #350112;
+  font-weight: bold;
+  position: relative;
+}
+
+.h1::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -7px;
+  left: 0;
+  width: 100%;
+  height: 7px;
+  background-color: #e7d7d7;
+}
+
+.h2 {
+  font-size: 32px;
+  color: #5d5f70;
+  font-style: italic;
+  border-left: 4px solid #350112;
+  padding-left: 10px;
+}
+
+.p {
+  font-size: 21px;
+  color: #5d5f70;
+  line-height: 1.6;
+}
+
+.separator {
+  width: 2px;
+  background: #350112;
+  height: 80%;
+}
+
+.videoContainer {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iframe {
+  width: 100%;
+  max-width: 100%;
+  height: 450px;
+  border: 3px solid #5f331d;
+  border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .content {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 60vh;
-
+    gap: 20px;
   }
 
-  
-  .rivecomp {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-
-    z-index: 2;
-  }
-  
-  .web {
-    display: block;
-  }
-  
-  .movil {
+  .separator {
     display: none;
   }
-  
-  @media (max-width: 768px) {
-    .section {
-      cursor: default;
-    }
-    .web {
-      display: none;
-    }
-    .movil {
-      display: block;
-    }
+
+  .iframe {
+    max-width: 100vw;
+    height: 300px;
   }
-  
+
+  .textGroup {
+    text-align: center;
+  }
+
+  .decorativeImage {
+    margin: 0 auto;
+  }
+}

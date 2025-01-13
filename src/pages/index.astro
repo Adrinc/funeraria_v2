@@ -6,9 +6,9 @@ import IndexSeccion2 from '../components/index/Secciones/IndexSeccion2.astro';
 import Opciones from '../components/index/Secciones/IndexSeccion3.astro';
 import IndexSeccion4 from '../components/index/Secciones/IndexSeccion4.astro';
 import Ubicacion from '../components/index/Secciones/IndexSeccion5.astro';
-import Nosotros from '../components/index/Secciones/IndexSeccion6.astro';
+import Nosotros from '../components/index/Secciones/IndexSeccion6.jsx';
 import Planes from '../components/index/Secciones/IndexSeccion7.astro';
-import ContactoSeccion from '../components/contacto/ContactoSeccion.astro';
+import ContactoSeccion from '../components/index/Secciones/ContactoSeccion.jsx';
 import { isEnglish } from '../data/variables';
 
 
@@ -24,12 +24,12 @@ const ingles = isEnglish.get();
 	<IndexSeccion1 ingles={ingles}/>
 	
 	<IndexSeccion2/>
-	<Nosotros/>
+	<Nosotros client:only="react" transition:persist/>
 	<Planes/>
 	<Opciones/>
 	<Ubicacion/>
 	<IndexSeccion4/>
-	<ContactoSeccion/>
+	<ContactoSeccion client:only="react" transition:persist />
 
 
 </LayoutBasic>

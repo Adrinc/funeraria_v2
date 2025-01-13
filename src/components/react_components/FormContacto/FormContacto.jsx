@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './FormContacto.module.css';
 
-const FormContacto = () => {
+const FormContacto = ({ isEnglish }) => {
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
@@ -15,27 +15,31 @@ const FormContacto = () => {
     let newErrors = { ...errors };
 
     if (name === 'nombre') {
-      // Evita números o símbolos
       const filteredValue = value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '');
       setFormData({ ...formData, [name]: filteredValue });
       if (!/^[a-zA-ZÀ-ÿ\s]*$/.test(value)) {
-        newErrors.nombre = 'Nombre no válido. Solo letras y máximo 50 caracteres.';
+        newErrors.nombre = isEnglish
+          ? 'Invalid name. Only letters and a maximum of 50 characters.'
+          : 'Nombre no válido. Solo letras y máximo 50 caracteres.';
       } else {
         delete newErrors.nombre;
       }
     } else if (name === 'telefono') {
-      // Solo permite números
       const filteredValue = value.replace(/\D/g, '');
       setFormData({ ...formData, [name]: filteredValue });
       if (!/^\d*$/.test(value)) {
-        newErrors.telefono = 'Número de teléfono no válido. Solo números (10-15 dígitos).';
+        newErrors.telefono = isEnglish
+          ? 'Invalid phone number. Only numbers (10-15 digits).'
+          : 'Número de teléfono no válido. Solo números (10-15 dígitos).';
       } else {
         delete newErrors.telefono;
       }
     } else if (name === 'email') {
       setFormData({ ...formData, [name]: value });
       if (!/^.{4,}@/.test(value)) {
-        newErrors.email = 'El correo debe tener al menos 4 caracteres antes del @.';
+        newErrors.email = isEnglish
+          ? 'The email must have at least 4 characters before the @.'
+          : 'El correo debe tener al menos 4 caracteres antes del @.';
       } else {
         delete newErrors.email;
       }
@@ -50,16 +54,22 @@ const FormContacto = () => {
     const newErrors = {};
 
     if (!/^[a-zA-ZÀ-ÿ\s]{1,50}$/.test(formData.nombre)) {
-      newErrors.nombre = 'Nombre no válido. Solo letras y máximo 50 caracteres.';
+      newErrors.nombre = isEnglish
+        ? 'Invalid name. Only letters and a maximum of 50 characters.'
+        : 'Nombre no válido. Solo letras y máximo 50 caracteres.';
     }
     if (!/^.{4,}@[\w-]+\.[a-z]{2,}$/.test(formData.email)) {
-      newErrors.email = 'Correo electrónico no válido.';
+      newErrors.email = isEnglish ? 'Invalid email.' : 'Correo electrónico no válido.';
     }
     if (!/^\d{10,15}$/.test(formData.telefono)) {
-      newErrors.telefono = 'Número de teléfono no válido. Solo números (10-15 dígitos).';
+      newErrors.telefono = isEnglish
+        ? 'Invalid phone number. Only numbers (10-15 digits).'
+        : 'Número de teléfono no válido. Solo números (10-15 dígitos).';
     }
     if (formData.ayuda.trim() === '') {
-      newErrors.ayuda = 'Por favor, dinos cómo podemos ayudarte.';
+      newErrors.ayuda = isEnglish
+        ? 'Please tell us how we can assist you.'
+        : 'Por favor, dinos cómo podemos ayudarte.';
     }
 
     return newErrors;
@@ -72,19 +82,21 @@ const FormContacto = () => {
       setErrors(validationErrors);
     } else {
       setErrors({});
-      alert('Formulario enviado con éxito.');
+      alert(isEnglish ? 'Form submitted successfully.' : 'Formulario enviado con éxito.');
     }
   };
 
   return (
     <div className={styles.container}>
       <h2 className={styles.title}>
-        Ingresa tus datos y manda un mensaje para ponernos en contacto contigo lo antes posible.
+        {isEnglish
+          ? 'Enter your details and send a message so we can get in touch with you as soon as possible.'
+          : 'Ingresa tus datos y manda un mensaje para ponernos en contacto contigo lo antes posible.'}
       </h2>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.field}>
           <label className={styles.label} htmlFor="nombre">
-            Nombre completo
+            {isEnglish ? 'Full Name' : 'Nombre completo'}
           </label>
           <div className={styles.inputContainer}>
             <img src="./icons/user.svg" alt="User Icon" className={styles.icon} />
@@ -102,7 +114,7 @@ const FormContacto = () => {
 
         <div className={styles.field}>
           <label className={styles.label} htmlFor="email">
-            Correo Electrónico
+            {isEnglish ? 'Email Address' : 'Correo Electrónico'}
           </label>
           <div className={styles.inputContainer}>
             <img src="./icons/email.svg" alt="Email Icon" className={styles.icon} />
@@ -120,7 +132,7 @@ const FormContacto = () => {
 
         <div className={styles.field}>
           <label className={styles.label} htmlFor="telefono">
-            Número de Teléfono
+            {isEnglish ? 'Phone Number' : 'Número de Teléfono'}
           </label>
           <div className={styles.inputContainer}>
             <img src="./icons/phone.svg" alt="Phone Icon" className={styles.icon} />
@@ -138,7 +150,7 @@ const FormContacto = () => {
 
         <div className={styles.field}>
           <label className={styles.label} htmlFor="ayuda">
-            ¿Cómo puedo ayudarte?
+            {isEnglish ? 'How can I assist you?' : '¿Cómo puedo ayudarte?'}
           </label>
           <div className={styles.inputContainer}>
             <img src="../icons/help.svg" alt="Help Icon" className={styles.icon} />
@@ -154,7 +166,7 @@ const FormContacto = () => {
         </div>
 
         <button type="submit" className={styles.submitButton}>
-          Enviar
+          {isEnglish ? 'Submit' : 'Enviar'}
         </button>
       </form>
     </div>
