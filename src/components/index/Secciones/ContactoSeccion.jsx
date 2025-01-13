@@ -2,7 +2,7 @@ import React from 'react';
 import { useStore } from "@nanostores/react";
 import { isEnglish } from "../../../data/variables.js";
 import FormContact from '../../react_components/FormContacto/FormContacto.jsx';
-import styles from '../css/ContactoSeccion.module.css';
+import styles from '../css/contactoSeccion.module.css';
 
 const ContactoSeccion = () => {
   const ingles = useStore(isEnglish);
