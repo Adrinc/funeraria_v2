@@ -1,0 +1,111 @@
+.main {
+    padding: 4rem 2rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('./image/bgs/bgcards.jpg') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+    border-top: 10px inset #CD915D;
+    border-bottom: 10px inset #CD915D;
+
+}
+
+.container {
+    padding: 4rem 2rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                url('./image/bgs/bgcards.jpg') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
+ /*    border-top: 40px inset black;
+    border-bottom: 40px inset black; */
+    border: 30px groove rgb(237, 187, 24);
+
+}
+
+.title {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    color: #f0b400;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+}
+
+.description {
+    font-size: 2rem;
+ 
+    margin-bottom: 3rem;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    color: #e0e0e0;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: space-around;
+}
+
+.column {
+    flex: 1;
+    min-width: 280px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* cursor: pointer; */
+}
+
+.column:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
+}
+
+.column h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #f0b400;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
+    font-weight: bold;
+}
+
+.column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.column li {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: #ddd;
+}
+
+.column li::before {
+    content: "✔";
+    color: #f0b400;
+    margin-right: 0.5rem;
+    font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+    .grid {
+        flex-direction: column;
+    }
+    .description {
+        font-size: 1rem;
+     
+        margin-bottom: 1rem;
+        max-width: 1500px;
+        margin-left: auto;
+        margin-right: auto;
+        color: #e0e0e0;
+    }
+}

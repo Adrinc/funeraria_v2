@@ -1,0 +1,120 @@
+
+.main {
+  position: relative;
+  width: 100vw;
+  height: auto;
+  border-top: 3px solid #CD915D;
+  border-bottom: 3px solid #CD915D;
+  box-sizing: content-box;
+}
+
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+
+}
+
+.topRow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+  width: 100%;
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .topRow {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.textSection {
+  text-align: left;
+  max-width: 600px;
+  font-size: 1.1rem;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.textSection h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: orange;
+}
+
+.imageSection {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.imageSection img {
+  max-width: 90%;
+  height: auto;
+  border-radius: 10px;
+  animation: fadeIn 1.5s ease-in-out;
+  box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.7);
+}
+
+.iconSection {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  gap: 20px;
+}
+
+.iconItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.iconItem:hover {
+  transform: scale(1.1);
+}
+
+.iconItem img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+}
+
+.iconItem p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,14 +1,12 @@
 /* Contenedor principal */
 .container {
-    background-color: #5F331D;
+    background-color: #151515;
     color: white;
     padding: 2rem;
     border-radius: 8px;
     max-width: 600px;
     margin: 2rem auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-/*     border-left: 4px solid #CD915D;
-    border-right: 4px solid #CD915D; */
 }
 
 /* Título */
@@ -36,6 +34,7 @@
 .label {
     font-size: 1rem;
     margin-bottom: 0.5rem;
+    color: #ffc42d;
 }
 
 /* Contenedor del input */
@@ -49,43 +48,42 @@
 .textarea {
     font-size: 1rem;
     padding: 0.75rem;
-    border: 1px solid #CD915D;
+    border: 1px solid #ffc42d;
     border-radius: 4px;
-    background-color: #fff9f4;
-    color: black;
+    background-color: #2a2a2a;
+    color: white;
     flex: 1;
 }
 
 .input:focus,
 .textarea:focus {
     outline: none;
-    border-color: #CD915D;
-    box-shadow: 0 0 4px #CD915D;
+    border-color: #ffc42d;
+    box-shadow: 0 0 4px #ffc42d;
 }
 
 /* Botón de envío */
 .submitButton {
     font-size: 1.25rem;
     padding: 0.75rem;
-    margin-left: 30px;
     border: none;
     border-radius: 4px;
-    background-color: #CD915D;
-    color: #0D0E26;
+    background-color: #ffc42d;
+    color: #151515;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .submitButton:hover {
-    background-color: rgb(255, 162, 0);
-    color: black;
+    background-color: #ffd966;
+    color: #000;
 }
 
 /* Iconos */
 .icon {
-    margin-right: 8px; /* Ajusta el margen según sea necesario */
-    width: 24px; /* Ajusta el tamaño del icono según sea necesario */
-    height: 24px; /* Ajusta el tamaño del icono según sea necesario */
+    margin-right: 8px;
+    width: 24px;
+    height: 24px;
 }
 
 /* Mensajes de error */

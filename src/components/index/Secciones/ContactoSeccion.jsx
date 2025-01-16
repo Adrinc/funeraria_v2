@@ -9,14 +9,14 @@ const ContactoSeccion = () => {
 
   return (
     <>
-      <div className={styles.centeredText}>
+     {/*  <div className={styles.centeredText}>
         <h1 className={`${styles.largeText} ${styles.whiteText}`}>
           {ingles 
             ? "LEAVE US YOUR INFORMATION AND WE WILL GLADLY ASSIST YOU" 
             : "DÉJENOS SUS DATOS Y CON GUSTO LE ASESORAMOS"}
         </h1>
-      </div>
-      <section id="contacto" className={styles.section}>
+      </div> */}
+      <section  className={styles.section}>
         <div className={styles.container}>
           <div className={styles.formColumn}>
           <FormContact isEnglish={ingles} />

@@ -10,11 +10,11 @@ const {ingles} = Astro.props;
 
 
 <section id="home" >
-<!--   <h1 id="text_valor" class=" text-xl w-50 h-50 bg-black z-50 text-center text-white"> El valor es: {ingles.toString()} </h1> -->
+
   <div class="rivecomp web">
     <RiveComponent
-      src="/rive/funeraria.riv"
-      artboard="Hero 1"
+      src="/rive/funeraria-v2.riv"
+      artboard="HeroSeccion"
       stateMachines="State Machine 1"
       autoplay={true}
       fit="fill"
@@ -27,8 +27,8 @@ const {ingles} = Astro.props;
   <div class="rivecomp movil">
 
     <RiveComponent 
-    src="/rive/funeraria.riv" 
-    artboard="Hero 1_movil 2"
+    src="/rive/funeraria-v2.riv" 
+    artboard="HeroSeccion_movil"
     stateMachines="State Machine 1"
     autoplay={true} 
     transition:persist 
@@ -46,7 +46,7 @@ const {ingles} = Astro.props;
   muted 
   playsinline
   >
-    <source src="/videos/f1.mp4" type="video/mp4" />
+    <source src="/videos/colinas2.mp4" type="video/mp4" />
   </video>
 
 </section>

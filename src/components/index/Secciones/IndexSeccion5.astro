@@ -5,13 +5,10 @@ import GoogleMaps from "../../react_components/GoogleMap";
 
 
     <section id="direccion" class="fade-in-section">
-   
         <GoogleMaps
           client:only="react" 
           transition:persist
         />
-  
-
     </section>
 
 
@@ -45,11 +42,11 @@ import GoogleMaps from "../../react_components/GoogleMap";
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
-            observer.unobserve(entry.target); // Deja de observar después de activarse
+            observer.unobserve(entry.target); 
           }
         });
       },
-      { threshold: 0.3 } // El efecto se activará cuando el 20% del elemento sea visible
+      { threshold: 0.3 }
     );
 
     sections.forEach(section => observer.observe(section));

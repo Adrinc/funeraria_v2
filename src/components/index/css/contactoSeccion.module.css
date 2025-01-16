@@ -1,131 +1,157 @@
 .section {
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100vw;
-    height: 60vh;
-    padding: 0 20px;
-    background-color: #5a3e19;
-  }
-  
-  .centeredText {
-    text-align: center;
-    background-color: #4f2b18;
-    padding-top: 50px;
-    padding-bottom: 50px;
-  }
-  
-  .largeText {
-    font-size: 3.5em;
-  }
-  
-  .whiteText {
-    color: white;
-  }
-  
-  .container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    height: 100%;
-  }
-  
-  .containerInfo {
-    display: flex;
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100vw;
+  height: 60vh;
+  padding: 0 20px;
+  background-color: #000000b0; 
+  background-image: url('./image/bgs/002.jpg' );
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  border: 2px solid #CD915D;
+}
+
+.centeredText {
+  text-align: center;
+  background-color: #FFFFFF; /* Fondo blanco */
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.largeText {
+  font-size: 3.5em;
+  color: #333333; /* Texto oscuro para contraste */
+}
+
+.whiteText {
+  color: #333333; /* Cambiar el texto blanco a oscuro */
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.containerInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.formColumn,
+.infoColumn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+
+.formColumn {
+  width: 500px;
+  height: 500px;
+}
+
+.infoColumn {
+  text-align: center;
+}
+
+.logo {
+  width: 250px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #ffffff; /* Texto oscuro */
+  font-weight: bold;
+}
+
+.description {
+  font-size: 2.5rem;
+  color: #ebebeb; /* Color gris oscuro */
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  margin-top: 20px;
+}
+
+.web {
+  display: block;
+}
+
+.movil {
+  display: none;
+}
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./image/bgs/002.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  filter: blur(8px); /* Aplicar desenfoque */
+  z-index: 1;
+}
+
+.section > * {
+  position: relative;
+  z-index: 2; /* Elevar el contenido por encima del pseudo-elemento */
+}
+@media (max-width: 768px) {
+  .section {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+    height: auto;
+    padding: 20px;
   }
-  
+
+  .container {
+    width: 100%;
+    height: auto;
+  }
+
   .formColumn,
   .infoColumn {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    height: 100%;
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
   }
-  
-  .formColumn {
-    width: 500px;
-    height: 500px;
-  }
-  
+
   .infoColumn {
-    text-align: center;
+    order: -1;
   }
-  
+
+  .formColumn {
+    order: 1;
+  }
+
+  .largeText {
+    font-size: 2.5em;
+  }
+
   .logo {
-    width: 250px;
+    width: 150px;
     height: auto;
     margin-bottom: 20px;
   }
-  
-  .title {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    color: #ffffff;
-    font-weight: bold;
-  }
-  
-  .description {
-    font-size: 2.5rem;
-    color: #ffffff;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-    margin-top: 20px;
-  }
-  
-  .web {
-    display: block;
-  }
-  
-  .movil {
-    display: none;
-  }
-  
-  @media (max-width: 768px) {
-    .section {
-      flex-direction: column;
-      height: auto;
-      padding: 20px;
-    }
-  
-    .container {
-      width: 100%;
-      height: auto;
-    }
-  
-    .formColumn,
-    .infoColumn {
-      width: 100%;
-      height: auto;
-      margin: 20px 0;
-    }
-  
-    .infoColumn {
-      order: -1;
-    }
-  
-    .formColumn {
-      order: 1;
-    }
-  
-    .largeText {
-      font-size: 2.5em;
-    }
-  
-    .logo {
-      width: 150px;
-      height: auto;
-      margin-bottom: 20px;
-    }
-  }
-  
+}

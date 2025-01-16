@@ -27,13 +27,10 @@ const Nosotros = () => {
 
   return (
     <section ref={sectionRef} className={`${styles.section} ${styles.fadeInSection}`}>
+  
       <div className={styles.content}>
         <div className={styles.textGroup}>
-          <img
-            src="../image/pattern-flower-003.png"
-            alt={ingles ? "Decorative Flower" : "Flor decorativa"}
-            className={styles.decorativeImage}
-          />
+   
           <h1 className={styles.h1}>
             {ingles ? "About Us" : "Sobre Nosotros"}
           </h1>
@@ -52,20 +49,17 @@ const Nosotros = () => {
               Contamos con planes de previsión y atención inmediata para cubrir todas sus necesidades funerarias.`}
           </p>
         </div>
-
+  
         <div className={styles.separator}></div>
+  
+        <div className={styles.videoContainer}> <video className={styles.video} id="background-video" loop autoPlay muted playsInline><source src="../videos/funeraria1.mp4" type="video/mp4" /></video>
+ 
 
-        <div className={styles.videoContainer}>
-          <iframe
-            className={styles.iframe}
-            src="https://www.youtube-nocookie.com/embed/Gd5rH3t6gag"
-            title={ingles ? "YouTube video player" : "Reproductor de video de YouTube"}
-            allowFullScreen
-          ></iframe>
         </div>
       </div>
     </section>
   );
+  
 };
 
 export default Nosotros;
