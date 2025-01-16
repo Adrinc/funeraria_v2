@@ -33,7 +33,7 @@ const IntroSeccion = () => {
           <p>{content.description}</p>
         </div>
         <div className={styles.imageSection}>
-          <img src="/public/image/bgs/monumento.jpg" alt="Monumento" />
+          <img src="./image/bgs/monumento.jpg" alt="Monumento" />
         </div>
       </div>
       <div className={styles.iconSection}>
@@ -44,7 +44,7 @@ const IntroSeccion = () => {
           { icon: "hand_heart.png", label: content.understanding }
         ].map(({ icon, label }) => (
           <div className={styles.iconItem} key={label}>
-            <img src={`/public/icons/${icon}`} alt={label} />
+            <img src={`./icons/${icon}`} alt={label} />
             <p>{label}</p>
           </div>
         ))}
