@@ -150,7 +150,7 @@ const FormContacto = ({ isEnglish }) => {
 
         <div className={styles.field}>
           <label className={styles.label} htmlFor="ayuda">
-            {isEnglish ? 'How can I assist you?' : '¿Cómo puedo ayudarte?'}
+            {isEnglish ? 'How we can I assist you?' : '¿Cómo podemos ayudarte?'}
           </label>
           <div className={styles.inputContainer}>
             <img src="../icons/help.svg" alt="Help Icon" className={styles.icon} />

@@ -9,7 +9,7 @@ import ContactoSeccion from '../components/index/Secciones/ContactoSeccion.jsx';
 import { isEnglish } from '../data/variables';
 import OpcionesSeccion from '../components/index/Secciones/OpcionesSeccion.jsx';
 import PlanesSeccion from '../components/index/Secciones/PlanesSeccion.jsx';
-import Baner from '../components/global/Baner.astro';
+import Baner from '../components/react_components/baner/Baner.jsx';
 import IntroSeccion from '../components/index/Secciones/IntroSeccion.jsx';
 
 
@@ -25,18 +25,54 @@ const ingles = isEnglish.get();
 	<IndexSeccion1 ingles={ingles}/>
 	
 	<IntroSeccion client:only="react" transition:persist/>
-	<Baner idSeccion='opciones' imagen='./image/bgs/003.jpg' title='OPCIONES FUNERARIAS' subtitle='Las propiedades incluyen: Precio Congelado, Perpetuidad, Seguro de Saldos Insolutos, Transferible.'/>
-	<OpcionesSeccion/>
-	<Baner imagen='./image/bgs/familia.webp' title='Estamos aquí para brindarte apoyo y ofrecerte soluciones' subtitle='Amor, respeto y serenidad para honrar la vida de tus seres queridos'/>
+
+	<Baner 
+	idSeccion='opciones'
+	imagen='./image/bgs/003.jpg'
+	titleEs='OPCIONES FUNERARIAS'
+	subtitleEs='Las propiedades incluyen: Precio Congelado, Perpetuidad, Seguro de Saldos Insolutos, Transferible.'
+	titleEn='FUNERAL OPTIONS'
+	subtitleEn='The properties include: Frozen Price, Perpetuity, Insolvent Balance Insurance, Transferable.'
+	client:only="react" transition:persist
+  	/>
+
+	<OpcionesSeccion client:only="react" transition:persist/>
+
+	<Baner 
+	imagen='./image/bgs/familia.webp' 
+	titleEs='Estamos aquí para brindarte apoyo y ofrecerte soluciones' 
+	subtitleEs='Amor, respeto y serenidad para honrar la vida de tus seres queridos'
+	titleEn='We are here to support you and offer solutions' 
+	subtitleEn='Love, respect, and serenity to honor the lives of your loved ones'
+	client:only="react" transition:persist
+  	/>
 	
 	<Nosotros client:only="react" transition:persist/>
-	<Baner idSeccion='direccion' imagen='./image/bgs/mapbg.jpg' title='Nuestras ubicaciones' subtitle='Encuentra nuestras instalaciones y cementerio con facilidad' height='250px'/>
+
+	<Baner idSeccion='direccion' 
+	imagen='./image/bgs/mapbg.jpg' 
+	titleEs='Nuestras ubicaciones' 
+	subtitleEs='Encuentra nuestras instalaciones y cementerio con facilidad' 
+	titleEn='Our locations' 
+	subtitleEn='Easily find our facilities and cemetery'
+	height='250px'
+	client:only="react" transition:persist
+	/>
+	
 	<Ubicacion/>
 
 	<PlanesSeccion client:only="react" transition:persist/>
-	<Baner idSeccion='contacto' imagen='./image/bgs/001.jpg' title='Contáctenos' subtitle='Deje sus datos y con gusto le asesoramos' height='250px'/>
+
+	<Baner idSeccion='contacto' 
+	imagen='./image/bgs/001.jpg' 
+	titleEs='Contáctenos' 
+	subtitleEs='Deje sus datos y con gusto le asesoramos' 
+	titleEn='Contact us' 
+	subtitleEn='Leave your details and we will gladly assist you'
+	height='250px'
+	client:only="react" transition:persist
+  	/>
 	<ContactoSeccion client:only="react" transition:persist />
 
 
 </LayoutBasic>
-
