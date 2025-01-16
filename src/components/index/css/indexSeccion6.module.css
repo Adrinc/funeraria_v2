@@ -10,8 +10,6 @@
   position: relative;
   overflow: hidden;
   background-color: #151515;
-  /* background img */
-
   background-image: url('public/image/bgs/006.jpg');
   background-size: cover;
   background-position: left;
@@ -37,7 +35,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  height: 25vw;
+  height: auto;
 
   gap: 100px;
   position: relative;
@@ -60,7 +58,7 @@
 }
 
 .h1 {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2rem, 1vw, 3rem);
   color: #ffffff;
   font-weight: bold;
   position: relative;
@@ -78,7 +76,7 @@
 }
 
 .h2 {
-  font-size: 32px;
+  font-size: clamp(1.5rem, 1vw, 2rem);
   color: #ffc42d;
   font-style: italic;
   border-left: 4px solid #fccc1c;
@@ -86,7 +84,7 @@
 }
 
 .p {
-  font-size: 21px;
+  font-size: clamp(1rem, 1vw, 1.5rem);
   color: #eeeeee;
   line-height: 1.6;
 }
@@ -129,10 +127,26 @@ border: 10px solid #EFEFEF;
   z-index: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+  .section {
+    height: 70vh;
+    padding: 0;
+    margin: 0px 0;
+  }
   .content {
     flex-direction: column;
     gap: 20px;
+    height: 100%;
+  }
+  .videoContainer {
+    justify-self: center;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    width: 100vw;
+    height: 100%;
+
+    transform: skew(0deg);
   }
 
   .separator {
@@ -141,7 +155,7 @@ border: 10px solid #EFEFEF;
 
   .iframe {
     max-width: 100vw;
-    height: 300px;
+    height: 500px;
   }
 
   .textGroup {

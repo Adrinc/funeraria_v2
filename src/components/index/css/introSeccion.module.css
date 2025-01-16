@@ -1,4 +1,3 @@
-
 .main {
   position: relative;
   width: 100vw;
@@ -8,8 +7,6 @@
   box-sizing: content-box;
 }
 
-
-
 .container {
   display: flex;
   flex-direction: column;
@@ -17,7 +14,6 @@
   padding: 40px 20px;
   max-width: 1200px;
   margin: auto;
-
 }
 
 .topRow {
@@ -44,9 +40,13 @@
 }
 
 .textSection h1 {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 5vw, 3rem);
   font-weight: bold;
   margin-bottom: 20px;
+}
+.textSection p {
+  font-size: clamp(0.5rem, 4vw, 1.1rem);
+
 }
 
 .highlight {
@@ -69,7 +69,8 @@
 
 .iconSection {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  flex-wrap: wrap;
   width: 100%;
   gap: 20px;
 }
@@ -79,22 +80,36 @@
   flex-direction: column;
   align-items: center;
   transition: transform 0.3s ease;
+  flex: 1 1 150px;
+  max-width: 200px;
+}
+
+.iconItem img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
 }
 
 .iconItem:hover {
   transform: scale(1.1);
 }
 
-.iconItem img {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 10px;
-}
-
 .iconItem p {
   margin: 0;
   font-size: 24px;
   font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .iconSection {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .iconItem img {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 @keyframes fadeIn {

@@ -5,13 +5,12 @@ interface Props {
     subtitle?: string;
     height?: string;
     idSeccion?: string;
-
 }
 
-const { imagen, title, subtitle, height="400px", idSeccion } = Astro.props;
+const { imagen, title, subtitle, height = "400px", idSeccion } = Astro.props;
 ---
 
-<div id={idSeccion || ''}  class="banner-container" style={`background-image: url(${imagen || 'default-image.jpg'}); --height: ${height};`  }>
+<div id={idSeccion || ''} class="banner-container" style={`background-image: url(${imagen || 'default-image.jpg'}); --height: ${height};`}>
   <div class="overlay"></div>
   <div class="content">
     <h1 class="title"> {title || 'Título principal'} </h1>
@@ -25,13 +24,18 @@ const { imagen, title, subtitle, height="400px", idSeccion } = Astro.props;
     width: 100vw;
     background-position: center;
     background-size: cover;
-    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     overflow: hidden;
-   
+  }
+
+ 
+  @media (min-width: 1024px) {
+    .banner-container {
+      background-attachment: fixed;
+    }
   }
 
   .overlay {
@@ -40,7 +44,7 @@ const { imagen, title, subtitle, height="400px", idSeccion } = Astro.props;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Aquí se ajusta el color y la opacidad del overlay */
+    background: rgba(0, 0, 0, 0.5);
     z-index: 0;
   }
 
@@ -48,40 +52,35 @@ const { imagen, title, subtitle, height="400px", idSeccion } = Astro.props;
     text-align: center;
     color: white;
     z-index: 1;
-    padding: 50px;
+    padding: 5vw;
     width: 100%;
   }
 
   .title {
-    font-size: clamp(2rem, 2.5vw, 3rem);
+    font-size: clamp(1.8rem, 4vw, 3rem);
     margin: 0;
     font-weight: bold;
   }
 
   .subtitle {
-    font-size: 3rem;
+    font-size: clamp(1.2rem, 3vw, 2rem);
     margin: 10px 0 0;
     font-weight: lighter;
     color: #ffe4a4;
     background-color: rgba(0, 0, 0, 0.463);
     padding: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    /* backgound filter */
     backdrop-filter: blur(10px);
   }
 
-  /* Efecto parallax */
-  .banner-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: inherit;
-    background-position: center;
-    background-size: cover;
-    filter: blur(8px);
-    z-index: -1;
+  /* Ajustes para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .banner-container {
+      height: auto;
+      padding: 20px 0;
+    }
+    .content {
+      padding: 10vw;
+    }
   }
 </style>
