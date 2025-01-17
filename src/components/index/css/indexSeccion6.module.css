@@ -10,7 +10,7 @@
   position: relative;
   overflow: hidden;
   background-color: #151515;
-  background-image: url('public/image/bgs/006.jpg');
+  background-image: url('./image/bgs/006.jpg');
   background-size: cover;
   background-position: left;
   background-repeat: no-repeat;
