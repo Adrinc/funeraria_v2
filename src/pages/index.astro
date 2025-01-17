@@ -1,20 +1,19 @@
 ---
 import LayoutBasic from '../layouts/LayoutBasic.astro';
+import HeroSeccion from '../components/index/Secciones/HeroSeccion.astro';
+import DireccionSeccion from '../components/index/Secciones/DireccionSeccion.astro';
 
-import IndexSeccion1 from '../components/index/Secciones/IndexSeccion1.astro';
-import Ubicacion from '../components/index/Secciones/IndexSeccion5.astro';
-import Nosotros from '../components/index/Secciones/IndexSeccion6.jsx';
-
+import IntroSeccion from '../components/index/Secciones/IntroSeccion.jsx';
+import Nosotros from '../components/index/Secciones/NosotrosSeccion.jsx';
 import ContactoSeccion from '../components/index/Secciones/ContactoSeccion.jsx';
-import { isEnglish } from '../data/variables';
+
 import OpcionesSeccion from '../components/index/Secciones/OpcionesSeccion.jsx';
 import PlanesSeccion from '../components/index/Secciones/PlanesSeccion.jsx';
 import Baner from '../components/react_components/baner/Baner.jsx';
-import IntroSeccion from '../components/index/Secciones/IntroSeccion.jsx';
 
 
 
-const ingles = isEnglish.get();
+
 ---
 
 <LayoutBasic title="Home" showFooter={true}>
@@ -22,7 +21,7 @@ const ingles = isEnglish.get();
 
 
 
-	<IndexSeccion1 ingles={ingles}/>
+	<HeroSeccion/>
 	
 	<IntroSeccion client:only="react" transition:persist/>
 
@@ -59,7 +58,7 @@ const ingles = isEnglish.get();
 	client:only="react" transition:persist
 	/>
 	
-	<Ubicacion/>
+	<DireccionSeccion/>
 
 	<PlanesSeccion client:only="react" transition:persist/>
 

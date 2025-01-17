@@ -1,0 +1,54 @@
+---
+
+import GoogleMaps from "../../react_components/GoogleMap";
+---
+
+
+    <section id="direccion" class="fade-in-section">
+        <GoogleMaps
+          client:only="react" 
+          transition:persist
+        />
+    </section>
+
+
+<style> 
+
+
+   
+      
+      .fade-in-section {
+  opacity: 0;
+  transform: translateY(100px); 
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+  will-change: opacity, transform;
+}
+
+.fade-in-section.visible {
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+
+
+
+</style>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll(".fade-in-section");
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); 
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    sections.forEach(section => observer.observe(section));
+  });
+</script>

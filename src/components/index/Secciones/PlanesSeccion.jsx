@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useStore } from "@nanostores/react";
 import { isEnglish } from "../../../data/variables";
 import styles from "../css/planesSeccion.module.css";
-import gsap from "gsap";
+
 
 const advantagesData = {
   es: [
@@ -43,18 +43,28 @@ const PlanesSeccion = () => {
   const advantages = ingles ? advantagesData.en : advantagesData.es;
   const disadvantages = ingles ? disadvantagesData.en : disadvantagesData.es;
 
-  const containerRef = useRef(null);
+  const sectionRef = useRef();
 
   useEffect(() => {
-    gsap.fromTo(
-      containerRef.current,
-      { opacity: 0, y: 100 },
-      { opacity: 1, y: 0, duration: 5, ease: "power4.out", scrollTrigger: containerRef.current }
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.visible);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
     );
+
+    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="planes" className={styles.container} ref={containerRef}>
+    <section id="planes" className={`${styles.container} ${styles.fadeInSection}`} ref={sectionRef}>
       <h2 className={styles.title}>
         {ingles ? "Prevision Plans" : "Planes de previsión"}
       </h2>
