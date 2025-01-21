@@ -4,7 +4,7 @@
   justify-content: space-around;
   align-items: center;
   width: 100vw;
-  height: 60vh;
+  height: 1000px;
   padding: 0 20px;
   background-color: #000000b0; 
   background-image: url('./image/bgs/002.jpg' );
@@ -63,7 +63,7 @@
 
 .formColumn {
   width: 500px;
-  height: 500px;
+  height: auto;
 }
 
 .infoColumn {
@@ -118,11 +118,12 @@
   position: relative;
   z-index: 2; /* Elevar el contenido por encima del pseudo-elemento */
 }
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .section {
     flex-direction: column;
     height: auto;
     padding: 20px;
+    height: 1200px;
   }
 
   .container {
@@ -150,8 +151,45 @@
   }
 
   .logo {
-    width: 150px;
+    width: 100px;
     height: auto;
     margin-bottom: 20px;
+  }
+}
+@media (max-height: 430px) {
+  .section {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .container {
+    width: 100%;
+    height: auto;
+  }
+
+  .formColumn,
+  .infoColumn {
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+  }
+
+  .infoColumn {
+    order: -1;
+  }
+
+  .formColumn {
+    order: 1;
+  }
+
+  .largeText {
+    font-size: 1.5em;
+  }
+
+  .logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
   }
 }

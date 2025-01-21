@@ -1,103 +1,113 @@
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1 1 calc(33.33% - 32px); /* Tres tarjetas por fila */
-    max-width: 500px;
-    background-color: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    text-align: center;
-    transition: transform 0.2s;
-    padding: 20px;
-   height: 700px; /* Altura mínima igual para todas las tarjetas */
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  background-color: white;
+}
 
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 calc(33.33% - 40px); /* 3 tarjetas por fila */
+  max-width: 400px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+  padding: 20px;
+  height: auto; /* Se elimina altura fija */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.cardImage {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cardTitle {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 12px 0;
+}
+
+.cardDescription {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 16px 0;
+  text-align: left;
+  font-size: 16px;
+  color: #333;
+}
+
+.cardDescription li {
+  margin-bottom: 10px;
+  padding-left: 5px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.cardDescription li::before {
+  content: "•";
+  color: #333;
+  font-weight: bold;
+  display: inline-block;
+  width: 20px;
+}
+
+.cardButton {
+  background-color: #CD915D;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: auto;
+}
+
+.cardButton:hover {
+  background-color: #333333;
+}
+
+/* Tablets y pantallas medianas */
+@media (max-width: 1024px) {
+  .card {
+    flex: 1 1 calc(50% - 32px); /* 2 tarjetas por fila */
   }
-  
-  .card:hover {
-    transform: translateY(-8px);
+}
+
+/* Dispositivos móviles */
+@media (max-width: 600px) {
+  .card {
+    flex: 1 1 100%; /* 1 tarjeta por fila */
+    max-width: 100%;
   }
-  
-  .cardImage {
-    width: 100%;
-    height: 270px; /* Altura fija para las imágenes */
-    object-fit: cover;
-    border-radius: 8px;
-  }
-  
+
   .cardTitle {
-    font-size: 24px;
-    font-weight: bold;
-    margin: 12px 0;
+    font-size: 18px;
   }
-  
+
   .cardDescription {
-    list-style-type: none;
-    padding-left: 0;
-    margin: 16px 0;
-    text-align: left;
-    font-size: 16px;
-    color: #333;
+    font-size: 14px;
   }
-  
+
   .cardDescription li {
-    margin-bottom: 10px;
-    padding-left: 5px;
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 14px;
   }
-  
-  .cardDescription li::before {
-    content: "•";
-    color: #333;
-    font-weight: bold;
-    display: inline-block;
-    width: 20px;
+
+  .cardImage {
+    height: 200px;
   }
-  
-  .cardButton {
-    background-color: black;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-top: auto;
-  }
-  
-  .cardButton:hover {
-    background-color: #333;
-  }
-  
-  /* Responsividad para pantallas medianas (tablets) */
-  @media (max-width: 768px) {
-    .card {
-      flex: 1 1 calc(50% - 32px); /* Dos tarjetas por fila */
-      max-width: 100%;
-    }
-  }
-  
-  /* Responsividad para pantallas pequeñas (smartphones) */
-  @media (max-width: 480px) {
-    .card {
-      flex: 1 1 100%; /* Una tarjeta por fila */
-      max-width: 100%;
-    }
-  
-    .cardTitle {
-      font-size: 18px;
-    }
-  
-    .cardDescription {
-      font-size: 14px;
-    }
-  
-    .cardDescription li {
-      font-size: 14px;
-    }
-  }
-  
+}

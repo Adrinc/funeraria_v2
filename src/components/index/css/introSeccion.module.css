@@ -12,8 +12,9 @@
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: auto;
+  gap: 40px;
 }
 
 .topRow {
@@ -22,7 +23,7 @@
   align-items: center;
   margin-bottom: 40px;
   width: 100%;
-  gap: 20px;
+  gap: 40px;
 }
 
 @media (min-width: 768px) {
@@ -36,7 +37,6 @@
   text-align: left;
   max-width: 600px;
   font-size: 1.1rem;
-  animation: fadeInUp 1s ease-in-out;
 }
 
 .textSection h1 {
@@ -44,9 +44,9 @@
   font-weight: bold;
   margin-bottom: 20px;
 }
+
 .textSection p {
   font-size: clamp(0.5rem, 4vw, 1.1rem);
-
 }
 
 .highlight {
@@ -57,13 +57,14 @@
   display: flex;
   justify-content: center;
   width: 100%;
+  height: auto;
+  max-height: 700px;
 }
 
 .imageSection img {
-  max-width: 90%;
+  max-width: 100%;
   height: auto;
   border-radius: 10px;
-  animation: fadeIn 1.5s ease-in-out;
   box-shadow: 20px 20px 10px rgba(0, 0, 0, 0.7);
 }
 
@@ -112,24 +113,20 @@
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
+@media (max-width: 932px) and (max-height: 430px),
+       (max-width: 896px) and (max-height: 414px),
+       (max-width: 915px) and (max-height: 412px) {
+  .topRow {
+    flex-direction: column;
+    align-items: center;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+  .textSection {
+    text-align: center;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .imageSection {
+    max-height: 300px;
+    max-width: 50vw;
   }
 }

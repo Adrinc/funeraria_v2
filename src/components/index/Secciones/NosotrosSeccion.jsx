@@ -50,12 +50,7 @@ const Nosotros = () => {
           </p>
         </div>
   
-       {/*  <div className={styles.separator}></div> */}
-  
-        <div className={styles.videoContainer}> <video className={styles.video} id="background-video" loop autoPlay muted playsInline><source src="../videos/funeraria1.mp4" type="video/mp4" /></video>
- 
-
-        </div>
+        <div className={styles.videoContainer}> <video className={styles.video} id="background-video" loop autoPlay muted playsInline><source src="../videos/funeraria1.mp4" type="video/mp4" /></video></div>
       </div>
     </section>
   );
