@@ -34,56 +34,11 @@ const FormContacto = ({ isEnglish }) => {
       } else {
         delete newErrors.telefono;
       }
-    } else if (name === 'email') {
-      setFormData({ ...formData, [name]: value });
-      if (!/^.{4,}@/.test(value)) {
-        newErrors.email = isEnglish
-          ? 'The email must have at least 4 characters before the @.'
-          : 'El correo debe tener al menos 4 caracteres antes del @.';
-      } else {
-        delete newErrors.email;
-      }
     } else {
       setFormData({ ...formData, [name]: value });
     }
 
     setErrors(newErrors);
-  };
-
-  const validate = () => {
-    const newErrors = {};
-
-    if (!/^[a-zA-ZÀ-ÿ\s]{1,50}$/.test(formData.nombre)) {
-      newErrors.nombre = isEnglish
-        ? 'Invalid name. Only letters and a maximum of 50 characters.'
-        : 'Nombre no válido. Solo letras y máximo 50 caracteres.';
-    }
-    if (!/^.{4,}@[\w-]+\.[a-z]{2,}$/.test(formData.email)) {
-      newErrors.email = isEnglish ? 'Invalid email.' : 'Correo electrónico no válido.';
-    }
-    if (!/^\d{10,15}$/.test(formData.telefono)) {
-      newErrors.telefono = isEnglish
-        ? 'Invalid phone number. Only numbers (10-15 digits).'
-        : 'Número de teléfono no válido. Solo números (10-15 dígitos).';
-    }
-    if (formData.ayuda.trim() === '') {
-      newErrors.ayuda = isEnglish
-        ? 'Please tell us how we can assist you.'
-        : 'Por favor, dinos cómo podemos ayudarte.';
-    }
-
-    return newErrors;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-    } else {
-      setErrors({});
-      alert(isEnglish ? 'Form submitted successfully.' : 'Formulario enviado con éxito.');
-    }
   };
 
   return (
@@ -93,7 +48,19 @@ const FormContacto = ({ isEnglish }) => {
           ? 'Enter your details and send a message so we can get in touch with you as soon as possible.'
           : 'Ingresa tus datos y manda un mensaje para ponernos en contacto contigo lo antes posible.'}
       </h2>
-      <form className={styles.form} onSubmit={handleSubmit}>
+
+      {/* 🔥 Formulario con FormSubmit */}
+      <form
+        action="https://formsubmit.co/caricatumix@gmail.com"
+        method="POST"
+        className={styles.form}
+      >
+        {/* Ocultar captcha */}
+        <input type="hidden" name="_captcha" value="false" />
+
+        {/* Redirigir a página de agradecimiento (opcional) */}
+        <input type="hidden" name="_next" value="https://tu-sitio.com/gracias" />
+
         <div className={styles.field}>
           <label className={styles.label} htmlFor="nombre">
             {isEnglish ? 'Full Name' : 'Nombre completo'}
@@ -107,6 +74,7 @@ const FormContacto = ({ isEnglish }) => {
               className={styles.input}
               value={formData.nombre}
               onChange={handleChange}
+              required
             />
           </div>
           {errors.nombre && <p className={styles.error}>{errors.nombre}</p>}
@@ -125,6 +93,7 @@ const FormContacto = ({ isEnglish }) => {
               className={styles.input}
               value={formData.email}
               onChange={handleChange}
+              required
             />
           </div>
           {errors.email && <p className={styles.error}>{errors.email}</p>}
@@ -143,6 +112,7 @@ const FormContacto = ({ isEnglish }) => {
               className={styles.input}
               value={formData.telefono}
               onChange={handleChange}
+              required
             />
           </div>
           {errors.telefono && <p className={styles.error}>{errors.telefono}</p>}
@@ -150,7 +120,7 @@ const FormContacto = ({ isEnglish }) => {
 
         <div className={styles.field}>
           <label className={styles.label} htmlFor="ayuda">
-            {isEnglish ? 'How we can I assist you?' : '¿Cómo podemos ayudarte?'}
+            {isEnglish ? 'How we can assist you?' : '¿Cómo podemos ayudarte?'}
           </label>
           <div className={styles.inputContainer}>
             <img src="../icons/help.svg" alt="Help Icon" className={styles.icon} />
@@ -160,6 +130,7 @@ const FormContacto = ({ isEnglish }) => {
               className={styles.textarea}
               value={formData.ayuda}
               onChange={handleChange}
+              required
             ></textarea>
           </div>
           {errors.ayuda && <p className={styles.error}>{errors.ayuda}</p>}
