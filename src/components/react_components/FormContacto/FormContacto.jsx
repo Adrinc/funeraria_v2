@@ -5,6 +5,7 @@ import emailjs from 'emailjs-com';
 const FormContacto = ({ isEnglish }) => {
   const [formData, setFormData] = useState({
     nombre: '',
+    apellido: '',
     email: '',
     telefono: '',
     ayuda: '',
@@ -20,12 +21,25 @@ const FormContacto = ({ isEnglish }) => {
       setFormData({ ...formData, [name]: filteredValue });
       if (!/^[a-zA-ZÀ-ÿ\s]*$/.test(value)) {
         newErrors.nombre = isEnglish
-          ? 'Invalid name. Only letters and a maximum of 50 characters.'
-          : 'Nombre no válido. Solo letras y máximo 50 caracteres.';
+          ? 'Invalid. Only letters and a maximum of 50 characters.'
+          : 'Solo letras y máximo 50 caracteres.';
       } else {
         delete newErrors.nombre;
       }
-    } else if (name === 'telefono') {
+    } 
+    else if (name === 'apellido') {
+      const filteredValue = value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '');
+      setFormData({ ...formData, [name]: filteredValue });
+      if (!/^[a-zA-ZÀ-ÿ\s]*$/.test(value)) {
+        newErrors.apellido = isEnglish
+          ? 'Invalid. Only letters and a maximum of 50 characters.'
+          : 'Solo letras y máximo 50 caracteres.';
+      } else {
+        delete newErrors.apellido;
+      }
+    }
+    
+    else if (name === 'telefono') {
       const filteredValue = value.replace(/\D/g, '');
       setFormData({ ...formData, [name]: filteredValue });
       if (!/^\d*$/.test(value)) {
@@ -59,6 +73,11 @@ const FormContacto = ({ isEnglish }) => {
         ? 'Invalid name. Only letters and a maximum of 50 characters.'
         : 'Nombre no válido. Solo letras y máximo 50 caracteres.';
     }
+    if (!/^[a-zA-ZÀ-ÿ\s]{1,50}$/.test(formData.apellido)) {
+      newErrors.apellido = isEnglish
+        ? 'Invalid. Only letters and a maximum of 50 characters.'
+        : 'Solo letras y máximo 50 caracteres.';
+    }
     if (!/^.{4,}@[\w-]+\.[a-z]{2,}$/.test(formData.email)) {
       newErrors.email = isEnglish ? 'Invalid email.' : 'Correo electrónico no válido.';
     }
@@ -76,33 +95,57 @@ const FormContacto = ({ isEnglish }) => {
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
       setErrors({});
-      // Aquí definimos la lógica de envío de correo (usando emailjs)
+      // Lógica de envío de correo
       const formValues = {
         from_name: formData.nombre,
+        from_last_name: formData.apellido,
         from_email: formData.email,
         from_phone: formData.telefono,
         attention_type: formData.ayuda,
       };
 
-      emailjs.send(
-        'service_x2avn5l',  // Tu ID de servicio en EmailJS
-        'template_w19e4sq',  // Tu ID de plantilla en EmailJS
-        formValues,  // Los datos del formulario que coinciden con los nombres en el template
-        'ppD5lHH_SjifTuc2i'  // Tu ID de usuario
-      )
-      .then(() => {
+      try {
+        // Enviar el formulario a EmailJS
+        await emailjs.send(
+          'service_x2avn5l',  // Tu ID de servicio en EmailJS
+          'template_w19e4sq',  // Tu ID de plantilla en EmailJS
+          formValues,  // Los datos del formulario
+          'ppD5lHH_SjifTuc2i'  // Tu ID de usuario
+        );
         alert('Formulario enviado con éxito.');
-      })
-      .catch((error) => {
-        alert('Hubo un error al enviar el formulario: ' + error.text);
-      });
+
+        // Enviar el formulario a la API
+        const apiResponse = await fetch('https://u-n8n.virtalus.cbluna-dev.com/webhook/contactus_process', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            lead_email: formData.email,
+            lead_phone: formData.telefono,
+            lead_first_name: formData.nombre,
+            lead_last_name: formData.apellido,  // Nombre de prueba
+            lead_message: formData.ayuda,
+            organization_id: '8',  // Valor por defecto
+          }),
+        });
+
+        if (apiResponse.ok) {
+          console.log('POST realizado con éxito');
+        } else {
+          console.error('Error en la API:', apiResponse.statusText);
+        }
+      } catch (error) {
+        console.error('Hubo un error:', error);
+        alert('Hubo un error al enviar el formulario.');
+      }
     }
   };
 
@@ -116,7 +159,7 @@ const FormContacto = ({ isEnglish }) => {
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.field}>
           <label className={styles.label} htmlFor="nombre">
-            {isEnglish ? 'Full Name' : 'Nombre completo'}
+            {isEnglish ? 'First Name' : 'Nombre'}
           </label>
           <div className={styles.inputContainer}>
             <img src="./icons/user.svg" alt="User Icon" className={styles.icon} />
@@ -131,6 +174,25 @@ const FormContacto = ({ isEnglish }) => {
           </div>
           {errors.nombre && <p className={styles.error}>{errors.nombre}</p>}
         </div>
+
+        <div className={styles.field}>
+          <label className={styles.label} htmlFor="apellido">
+            {isEnglish ? 'Last Name' : 'apellido'}
+          </label>
+          <div className={styles.inputContainer}>
+            <img src="./icons/user.svg" alt="User Icon" className={styles.icon} />
+            <input
+              type="text"
+              id="apellido"
+              name="apellido"
+              className={styles.input}
+              value={formData.apellido}
+              onChange={handleChange}
+            />
+          </div>
+          {errors.nombre && <p className={styles.error}>{errors.nombre}</p>}
+        </div>
+        
 
         <div className={styles.field}>
           <label className={styles.label} htmlFor="email">
